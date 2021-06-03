@@ -1,4 +1,10 @@
 <!doctype html>
+
+<?php 
+include 'controller/conn.php';
+?>
+
+
 <html class="no-js" lang="zxx">
 
 <head>
@@ -204,70 +210,30 @@
 		<div class="slider_area slide_active">
 
 			<!-- Start Single Slide -->
+			<?php 
+			$result_head = mysqli_query($db2,"select * from `banner1`");
+			while($d_head = mysqli_fetch_array($result_head)){
+			?>
 			<div class="slide slide_fixed_height bg_image--1 d-flex align-items-center poss_relative animation__style01">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-12">
 
 							<div class="slide_text">
-								<h3>Unbelievable low prices</h3>
-								<h1>GLASSES FOR
-									<br> MEN & WOMEN</h1>
+								<h3><?php echo $d_head['text3']; ?></h3>
+								<h1><?php echo $d_head['judul']; ?></h1>
 								<a href="#">Buy Now</a>
 							</div>
 
 							<div class="rotate_titlE">
 								<h2>GET UP TO
-									<span>65%</span> Off</h2>
+									<span><?php echo $d_head['text_discount'] ?> %</span> Off</h2>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- End Single Slide -->
-			<!-- Start Single Slide -->
-			<div class="slide slide_fixed_height bg_image--8 d-flex align-items-center poss_relative animation__style01">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-12">
-
-							<div class="slide_text">
-								<h3>Unbelievable low prices</h3>
-								<h1>GLASSES FOR
-									<br> MEN & WOMEN</h1>
-								<a href="#">Buy Now</a>
-							</div>
-
-							<div class="rotate_titlE">
-								<h2>GET UP TO
-									<span>65%</span> Off</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End Single Slide -->
-			<!-- Start Single Slide -->
-			<div class="slide slide_fixed_height bg_image--1 d-flex align-items-center poss_relative animation__style01">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-12">
-
-							<div class="slide_text">
-								<h3>Unbelievable low prices</h3>
-								<h1>GLASSES FOR
-									<br> MEN & WOMEN</h1>
-								<a href="#">Buy Now</a>
-							</div>
-
-							<div class="rotate_titlE">
-								<h2>GET UP TO
-									<span>65%</span> Off</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php } ?>
 			<!-- End Single Slide -->
 
 		</div>
@@ -480,35 +446,21 @@
 		<div class="banner_area">
 			<div class="row row--2">
 
+				<?php 
+				$result_head = mysqli_query($db2,"select * from `banner2`");
+				while($d_head = mysqli_fetch_array($result_head)){
+				?>
 				<div class="col-lg-4 col-sm-6 col-12">
 					<div class="banner">
 						<div class="thumb">
 							<a href="#">
-								<img src="img/banner/banner-1.jpg" alt="banner img">
+								<img src="img/banner_2/<?php echo $d_head['gambar']?>" alt="banner img">
 							</a>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-lg-4 col-sm-6 col-12">
-					<div class="banner">
-						<div class="thumb">
-							<a href="#">
-								<img src="img/banner/banner-2.jpg" alt="banner img">
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-sm-6 col-12">
-					<div class="banner">
-						<div class="thumb">
-							<a href="#">
-								<img src="img/banner/banner-3.jpg" alt="banner img">
-							</a>
-						</div>
-					</div>
-				</div>
+				<?php } ?>
 
 			</div>
 		</div>
@@ -2298,17 +2250,24 @@
 		<div class="counterup_area section-pt-xl">
 			<div class="counterup_wrapper">
 				<div class="container bg_image--2">
+					<?php
+					$result_head = mysqli_query($db2,"select * from `bannerPromo` where id_banner = 1");
+					while($d_head = mysqli_fetch_array($result_head)){
+					$harga= $d_head['harga'];
+					$judul= $d_head['judul'];
+					$gambar= $d_head['gambar'];
+					$tanggal_berlaku= $d_head['tanggal_berlaku'];
+					$status_banner= $d_head['status_banner'];
+					?>
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="counter_content_inner">
 								<div class="counter_content">
 									<div class="thumb">
-										<img src="img/product/coundown_pro_img.png" alt="banner images">
+										<img src="img/banner_promo/<?php echo $gambar; ?>" alt="banner images">
 									</div>
 									<div class="content">
-										<h2>It’s WODIS</h2>
-										<h3>STYLISH & BEAUTY
-											<br>chasmish</h3>
+										<h3><?php echo $judul; ?></h3>
 										<a href="#">Shop Now</a>
 									</div>
 								</div>
@@ -2322,6 +2281,7 @@
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 		<!-- End CounteUp Area -->
