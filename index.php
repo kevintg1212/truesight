@@ -36,107 +36,7 @@ include 'controller/conn.php';
 	<div id="wrapper" class="wrapper">
 
 		<!-- Header -->
-		<header class="header chasmishco_header">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-xl-3 col-lg-2 col-md-4">
-						<div class="logo">
-							<a href="index.html">
-								<img src="img/logo/logo1.png" alt="chasmishco Logo">
-							</a>
-						</div>
-					</div>
-					<div class="col-xl-9 col-lg-10 col-md-8">
-						<div class="header_right_sidebar">
-							<div class="login_account">
-								<div class="account">
-									<ul>
-										<li>
-					 						<a href="login-register.html">Login</a>
-										</li>
-										<li>
-											<a href="login-register.html">Reg</a>
-										</li>
-									</ul>
-								</div>
-								<div class="mini_cat_box">
-									<div class="shop_cart_icon shop_trigger shopping_basket header-cart">
-										<img src="img/icons/icon.png" alt="icons">
-										<span class="shop_count">3</span>
-										<span class="cart_text">cart</span>
-									</div>
-								</div>
-							</div>
-							<div class="glass_toggle_menu">
-								<nav class="mainmenu_nav mainmenu__nav">
-									<ul class="main_menu">
-										<li class="drop">
-											<a href="index.html">Home</a>
-											<ul class="dropdown">
-												<li>
-													<a href="index.html">Home Version 01</a>
-												</li>
-												<li>
-													<a href="index-2.html">Home Version 02</a>
-												</li>
-												<li>
-													<a href="index-3.html">Home Version 03</a>
-												</li>
-											</ul>
-										</li>
-										<li class="drop">
-											<a href="shop-grid.html">Shop</a>
-											<ul class="dropdown">
-												<li><a href="shop-grid.html">Shop Grid</a></li>
-												<li><a href="shop-list.html">Shop List</a></li>
-												<li><a href="single-product.html">Shop Single</a></li>
-											</ul>
-										</li>
-										<li class="drop">
-											<a href="blog-three-column.html">Blog</a>
-											<ul class="dropdown">
-												<li><a href="blog-three-column.html">Blog Three Column</a></li>
-												<li><a href="blog-two-column.html">Blog Two Column</a></li>
-												<li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-												<li><a href="blog-details.html">Blog Details</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="about.html">About</a>
-										</li>
-										<li class="drop">
-											<a href="#">pages</a>
-											<ul class="dropdown">
-												<li><a href="cart.html">Cart Page</a></li>
-												<li><a href="compare.html">Compare Page</a></li>
-												<li><a href="wishlist.html">Wishlist Page</a></li>
-												<li><a href="my-account.html">My Account</a></li>
-												<li><a href="checkout.html">Checkout Page</a></li>
-												<li><a href="contact.html">Contact</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="contact.html">Contact</a>
-										</li>
-									</ul>
-								</nav>
-
-								<div class="hamburger-box button mobile-toggle">
-									<span class="mobile-toggle__icon"></span>
-								</div>
-							</div>
-							<!-- Mobile Menu -->
-							<div class="mobile-menu d-block d-lg-none"></div>
-							<!-- Mobile Menu -->
-						</div>
-					</div>
-				</div>
-
-				
-				
-			</div>
-		</header>
-
+		<?php include "./view/header.php" ?>
 		<!-- Mini Cart Wrap Start -->
 		<div class="mini-cart-wrap">
 
@@ -214,7 +114,11 @@ include 'controller/conn.php';
 			$result_head = mysqli_query($db2,"select * from `banner1`");
 			while($d_head = mysqli_fetch_array($result_head)){
 			?>
-			<div class="slide slide_fixed_height bg_image--1 d-flex align-items-center poss_relative animation__style01">
+			<div class="slide slide_fixed_height d-flex align-items-center poss_relative animation__style01" 
+			style="background-image: url(img/banner_1/<?php echo $d_head['gambar']; ?>);
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-12">
@@ -2262,9 +2166,9 @@ include 'controller/conn.php';
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="counter_content_inner">
-								<div class="counter_content">
+								<div class="counter_content" >
 									<div class="thumb">
-										<img src="img/banner_promo/<?php echo $gambar; ?>" alt="banner images">
+										<img src="img/banner_promo/<?php echo $gambar; ?>" alt="banner images" >
 									</div>
 									<div class="content">
 										<h3><?php echo $judul; ?></h3>
@@ -2554,96 +2458,9 @@ include 'controller/conn.php';
 		</div>
 		<!-- End Shipping Service -->
 		<!-- Start Footer Area -->
-		<footer class="footer_area">
-			<div class="footer_top bg-cat--1">
-				<div class="container">
-					<div class="row">
-						<!-- Start Single Footer -->
-						<div class="col-lg-3 col-sm-6 col-12 mb--50">
-							<div class="footer_widget">
-								<h2 class="ft_widget_title">Los Angeles</h2>
-								<div class="textwidget">
-									<p>254 Roselen de Square
-										<br>Century Street, Haven Tower
-										<br>Los Angeles, USA</p>
-									<p>01254 658 987, 02365 987 456</p>
-									<p>info@example.com
-										<br>www.example.com</p>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Footer -->
-						<!-- Start Single Footer -->
-						<div class="col-lg-3 col-sm-6 col-12 mb--50">
-							<div class="footer_widget">
-								<h2 class="ft_widget_title">Manchester</h2>
-								<div class="textwidget">
-									<p>254 Roselen de Square
-										<br>Century Street, Haven Tower
-										<br>Los Angeles, USA</p>
-									<p>01254 658 987, 02365 987 456</p>
-									<p>info@example.com
-										<br>www.example.com</p>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Footer -->
-						<!-- Start Single Footer -->
-						<div class="col-lg-3 col-sm-6 col-12 mb--50">
-							<div class="footer_widget">
-								<h2 class="ft_widget_title">Abu Dhabi</h2>
-								<div class="textwidget">
-									<p>Oxeler Bin Square
-										<br>Seleya Street, Silicon Tower
-										<br>Abu Dhabi, UAE</p>
-									<p>09365 856 658, 09683 2656 889</p>
-									<p>info@example.com
-										<br>www.example.com</p>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Footer -->
-						<!-- Start Single Footer -->
-						<div class="col-lg-3 col-sm-6 col-12 mb--50">
-							<div class="footer_widget">
-								<h2 class="ft_widget_title">Newsletter</h2>
-								<div class="textwidget">
-									<div class="input_box">
-										<input type="email" placeholder="Enter your email here">
-										<button>Subscribe</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Footer -->
-					</div>
-				</div>
-			</div>
-			<div class="copyright bg-cat--2">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-6">
-							<div class="copy_text">
-								<p>Copyright © 2018, All Rights Reserved.</p>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<ul class="footer_menu d-flex justify-content-end">
-								<li>
-									<a href="#">Product Tracking</a>
-								</li>
-								<li>
-									<a href="#">Terms & Conditions</a>
-								</li>
-								<li>
-									<a href="#">Contact</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+		<?php 
+		include 'view/footer.php';
+		?>
 		<!-- End Footer Area -->
 
         <!-- Quick View Modal -->

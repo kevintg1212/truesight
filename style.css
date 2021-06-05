@@ -738,13 +738,13 @@ select {
   background-position: center center; }
 
 .bg_image--2 {
-  background-image: url(img/bg/bg-image-2.jpg);
+  background-image: url(img/bg/test-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
 
 .bg_image--3 {
-  background-image: url(img/bg/bg-image-3.jpg);
+  background-image: url(img/banner_bawah/automotive-eyewear-full.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -2351,7 +2351,7 @@ textarea:-ms-input-placeholder {
 .bradcaump_area {
   padding: 100px 0 105px; }
   .bradcaump_area .bradcaump_inner .bradcaump-title {
-    color: #fff;
+    color: #252525;
     font-size: 40px;
     font-weight: bold;
     line-height: 1;
@@ -2362,14 +2362,14 @@ textarea:-ms-input-placeholder {
         font-size: 26px;
         margin: 0 0 12px; } }
   .bradcaump_area .bradcaump_inner .bradcaump-content .breadcrumb_item {
-    color: #ffffff; }
+    color: #252525; }
     .bradcaump_area .bradcaump_inner .bradcaump-content .breadcrumb_item:hover {
       color: #777; }
     .bradcaump_area .bradcaump_inner .bradcaump-content .breadcrumb_item.active {
-      color: #ffffff; }
+      color: #252525; }
   .bradcaump_area .bradcaump_inner .bradcaump-content .brd-separetor {
     padding: 0 5px;
-    color: #ffffff; }
+    color: #252525; }
   @media only screen and (max-width: 767px) {
     .bradcaump_area {
       padding: 65px 0 65px; } }
