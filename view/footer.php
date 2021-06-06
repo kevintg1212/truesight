@@ -3,6 +3,20 @@
 				<div class="container">
 					<div class="row">
 						<!-- Start Single Footer -->
+
+						<div class="col-lg-3 col-sm-6 col-12 mb--50">
+							<div class="footer_widget">
+								<h2 class="" style="color: white;">Truesight</h2>
+								<h5 class="ft_widget_title">Look the right way.</h5>
+								<div class="textwidget" style="font-size: 25px; color: #898787;">
+										<a target="_blank" href="" style="padding-right: 20px;"><i class="fab fa-instagram"></i></a>
+                                        <a target="_blank" href="" style="padding-right: 20px;"><i class="fab fa-facebook-f"></i></a>
+                                        <a target="_blank" href="" style="padding-right: 20px;"><i class="fab fa-whatsapp"></i></a>
+								</div>
+							</div>
+						</div>
+
+						<!-- End Single Footer -->
 						<?php 
 						$no = 1;
 						$result_head = mysqli_query($db2,"select * from `contact_us`");
@@ -10,7 +24,7 @@
 						?>
 						<div class="col-lg-3 col-sm-6 col-12 mb--50">
 							<div class="footer_widget">
-								<h2 class="ft_widget_title">Bandung</h2>
+								<h5 class="ft_widget_title">Hubungi Kami</h5>
 								<div class="textwidget">
 									<p> <?php echo $d_head['address']?> </p>
 									<p> <?php echo $d_head['phone']?> </p>
@@ -19,10 +33,8 @@
 							</div>
 						</div>
 						<?php } ?>
-						<!-- End Single Footer -->
-
 						<!-- Start Single Footer -->
-						<!-- <div class="col-lg-3 col-sm-6 col-12 mb--50">
+						<div class="col-lg-3 col-sm-6 col-12 mb--50">
 							<div class="footer_widget">
 								<h2 class="ft_widget_title">Newsletter</h2>
 								<div class="textwidget">
@@ -32,7 +44,7 @@
 									</div>
 								</div>
 							</div>
-						</div> -->
+						</div>
 						<!-- End Single Footer -->
 					</div>
 				</div>

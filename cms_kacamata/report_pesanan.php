@@ -17,7 +17,7 @@ if (isset($_GET['idPesanan'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Persediaan Barang</title>
+    <title>Truesight Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -229,7 +229,7 @@ if (isset($_GET['idPesanan'])) {
     </form>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2020 <a href="#">Michael William</a>.</strong>
+        <strong>Copyright &copy; 2021 <a href="#">Truesight</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> Beta

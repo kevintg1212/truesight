@@ -10,7 +10,7 @@ include 'controller/conn.php';
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Truesight - Glasses  e-Catalogue</title>
+	<title>Truesight - Look the right way.</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,6 +27,8 @@ include 'controller/conn.php';
 
 	<!-- Custom Styles -->
 	<link rel="stylesheet" href="css/custom.css">
+		  <!-- Font Awesome -->
+		  <link rel="stylesheet" href="css/fontawesome-free/css/all.min.css">
 </head>
 
 <body>
