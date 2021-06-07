@@ -259,7 +259,7 @@ if($_SESSION['status_ca'] !="login"){
                                                     <label for="inputLampiran">Gambar Produk</label>
                                                     <input class="form-control" type="file" id="lampiran" name="lampiran">
                                                     <label for="lampiran"><img id="blah"
-                                                        style="width: 200px; border: 1px solid black; margin-top: 30px; paddingL 10px;"
+                                                        style="width: 200px; border: 1px solid black; margin-top: 30px; padding: 10px;"
                                                         src="img/upload.PNG" alt="your image" /></label>
                                                 </div>
                                             </div>

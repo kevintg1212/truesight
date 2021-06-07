@@ -71,6 +71,32 @@ if($_SESSION['status_ca'] !="login"){
     </div>
     <!-- /.modal -->
 
+
+    <div class="modal fade" id="modal-notification">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">PERHATIAN !!!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Pastikan <b>varian</b> produk sudah terhapus terlebih dahulu untuk melakukan penghapusan Produk</p>
+                </div>
+                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
     <div class="modal fade" id="modal-edit-header">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -273,10 +299,21 @@ if($_SESSION['status_ca'] !="login"){
                                                         style="width: 150px; margin-top: 10px; margin-right: 20px;">
                                                         <i class="fas fa-layer-group"></i> Lihat Varian
                                                     </a>
-                                                    <a type="submit" class="btn btn-danger" href="controller/conn_delete_produk.php?id_produk=<?php echo $d_head['id_produk']; ?>"
-                                                        style="width: 150px; margin-top: 10px; right: 0px;">
-                                                        <i class="fas fa-times"></i> Delete
-                                                    </a>
+
+                                                    <!-- Delete button -->
+                                                    <?php 
+                                                    $id_produk = $d_head['id_produk'];
+                                                    $varian_x = "";
+                                                    $varian = mysqli_query($db2, "select * from varian where id_produk = '$id_produk'");
+                                                    
+                                                    while($d_head = mysqli_fetch_array($varian)){
+                                                        $varian_x = $d_head['id_varian'];
+                                                    }
+                                                    ?>
+                                                        <a type="submit" class="btn btn-danger" href="controller/conn_delete_produk.php?id_produk=<?php echo $id_produk; ?>&id_varian=<?php echo $varian_x ?>"
+                                                            style="width: 150px; margin-top: 10px; right: 0px;">
+                                                            <i class="fas fa-times"></i> Delete
+                                                        </a>
                                                 </td>
                                             </tr>
                                             
@@ -431,6 +468,16 @@ if($_SESSION['status_ca'] !="login"){
                 $("#accountHead").removeClass("none");
             }
         });
+
+        <?php 
+            if(isset($_SESSION['option']) && $_SESSION['option'] == "warning") {
+        ?>
+            $('#modal-notification').modal({
+            show: true
+            });
+        <?php }
+        $_SESSION['option']="";
+        ?>
     </script>
 </body>
 
