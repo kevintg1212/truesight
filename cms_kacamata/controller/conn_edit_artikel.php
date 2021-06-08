@@ -50,7 +50,7 @@ if ($uploadOk == 0) {
 
     $stmt1->execute();
     $stmt1->close();
-    
+
     header("location:../artikel.php");
 
 ?>

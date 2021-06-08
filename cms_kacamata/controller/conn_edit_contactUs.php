@@ -19,6 +19,9 @@ session_start();
     $stmt1->execute();
     $stmt1->close();
 
+    
+    $_SESSION['editContact']="success";
+
     header("location:../contact_us.php");
 
 

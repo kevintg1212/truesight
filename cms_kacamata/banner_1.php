@@ -49,15 +49,11 @@ if($_SESSION['status_ca'] !="login"){
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Apakah anda yakin menghapus Konsumen ini ?<br>
-                        Nama Perusahaan &nbsp; :<b id="namaPerusahaan"></b><br>
-                        Alamat Perusahaan &nbsp; :<b id="alamatPerusahaan"></b></p>
+                    <p>Apakah anda yakin menghapus banner ini ?<br>
+                        Nama Banner : <b id="namaBanner"></b><br>
                 </div>
-                <form action="controller/conn_delete_konsumen.php" method="post">
-                <input class="codeC" type="hidden" name="codeC">
-                <input class="nameC" type="hidden" name="nameC">
-                <input class="idKon" type="hidden" name="idKon">
-                <input class="typeC" type="hidden" name="typeC">
+                <form action="controller/conn_delete_banner1.php" method="post">
+                <input class="id_banner" type="hidden" name="id_banner">
                 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
@@ -264,10 +260,13 @@ if($_SESSION['status_ca'] !="login"){
                                                         style="width: 100px; margin-top: 10px; margin-right: 20px;">
                                                         <i class="fas fa-pencil-alt"></i> Edit
                                                     </button>
-                                                    <a type="submit" class="btn btn-danger" href="controller/conn_delete_banner1.php?id_banner=<?php echo $d_head['id_banner']; ?>"
+                                                    <button class="btn btn-danger" name="id_ev"
+                                                            data-e="<?php echo $d_head['id_banner'] ?>"
+                                                            data-v="<?php echo $d_head['judul'] ?>"
+                                                            data-toggle="modal" data-target="#modal-cancel"
                                                         style="width: 100px; margin-top: 10px; right: 0px;">
                                                         <i class="fas fa-times"></i> Delete
-                                                    </a>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             
@@ -386,20 +385,13 @@ if($_SESSION['status_ca'] !="login"){
         $('#modal-cancel').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); // Button that triggered the modal
             var recipient_e = button.data('e'); // Extract info from data-* attributes
-            var recipient_v = button.data('v');
-            var recipient_c = button.data('c');
-            var recipient_i = button.data('i');
+            var recipient_v = button.data('v'); // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this);
-            modal.find('.namaPerusahaan').val(recipient_e);
-            modal.find('.alamatPerusahaan').val(recipient_v);
-            modal.find('.idKon').val(recipient_c);
-            modal.find('.emailPerusahaan').val(recipient_i);
-            document.getElementById("namaPerusahaan").innerHTML = recipient_e;
-            document.getElementById("alamatPerusahaan").innerHTML = recipient_i;
-            document.getElementById("noTelp").innerHTML = recipient_c;
-            document.getElementById("emailPerusahaan").innerHTML = recipient_v;
+            modal.find('.id_banner').val(recipient_e);
+            document.getElementById("namaBanner").innerHTML = recipient_v;
+            // document.getElementById("id_varian").innerHTML = recipient_v;
         })
 
         $('#modal-edit-header').on('show.bs.modal', function (event) {

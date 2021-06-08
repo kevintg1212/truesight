@@ -1,8 +1,9 @@
 <?php 
 include 'conn.php';
+session_start();
 
-    $id_produk = $_GET['id_produk'];
-    $id_varian = $_GET['id_varian'];
+    $id_produk = $_POST['id_produk'];
+    $id_varian = $_POST['id_varian'];
     echo "cc = ".$id_produk;
     echo "<br> varian = ".$id_varian;
 
@@ -14,9 +15,11 @@ include 'conn.php';
         
         $stmt3->execute();
         $stmt3->close();
+
+        $_SESSION['deleteProduk']="success";
         header("location:../produk.php?");
     } else {
-        $_SESSION['option']="warning";
+        $_SESSION['deleteProduk']="warning";
         echo "ada varian";
         header("location:../produk.php?");
     }
