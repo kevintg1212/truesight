@@ -3761,17 +3761,17 @@ textarea:-ms-input-placeholder {
       margin: 0 0 5px; }
       @media only screen and (min-width: 1200px) and (max-width: 1599px) {
         .counterup_area .counter_content .content h2 {
-          color: #191919; } }
+          color: #fff; } }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .counterup_area .counter_content .content h2 {
-          color: #191919; } }
+          color: #fff; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .counterup_area .counter_content .content h2 {
-          color: #191919;
+          color: #fff;
           font-size: 22px; } }
       @media only screen and (max-width: 767px) {
         .counterup_area .counter_content .content h2 {
-          color: #191919; } }
+          color: #fff; } }
       @media only screen and (max-width: 575px) {
         .counterup_area .counter_content .content h2 {
           font-size: 25px; } }
@@ -3787,21 +3787,21 @@ textarea:-ms-input-placeholder {
           font-size: 37px;
           line-height: 50px;
           margin: 0 0 9px;
-          color: #191919; } }
+          color: #fff; } }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .counterup_area .counter_content .content h3 {
-          color: #191919;
+          color: #fff;
           font-size: 38px;
           line-height: 56px;
           margin: 0 0 4px; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .counterup_area .counter_content .content h3 {
-          color: #191919;
+          color: #fff;
           font-size: 28px;
           line-height: 46px; } }
       @media only screen and (max-width: 767px) {
         .counterup_area .counter_content .content h3 {
-          color: #191919;
+          color: #fff;
           font-size: 28px;
           line-height: 43px; } }
       @media only screen and (max-width: 575px) {
@@ -3819,16 +3819,16 @@ textarea:-ms-input-placeholder {
       font-family: "Oswald", sans-serif; }
       @media only screen and (min-width: 1200px) and (max-width: 1599px) {
         .counterup_area .counter_content .content a {
-          color: #191919; } }
+          color: #fff; } }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .counterup_area .counter_content .content a {
-          color: #191919; } }
+          color: #fff; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .counterup_area .counter_content .content a {
-          color: #191919; } }
+          color: #fff; } }
       @media only screen and (max-width: 767px) {
         .counterup_area .counter_content .content a {
-          color: #191919; } }
+          color: #fff; } }
       .counterup_area .counter_content .content a:hover {
         opacity: 0.7; }
 

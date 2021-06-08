@@ -30,6 +30,9 @@ if($_SESSION['status_ca'] !="login"){
     <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- icon -->
     <link rel="icon" href="dist/img/logogram.png">
+    <!-- Minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="plugins/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <style>
         .none {
             display: none;
@@ -109,7 +112,7 @@ if($_SESSION['status_ca'] !="login"){
                             </div>
                         </div> -->
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="inputTanggal" class="col-sm-12 col-form-label">Tanggal berlaku:</label>
 
                             <div class="input-group">
@@ -119,6 +122,16 @@ if($_SESSION['status_ca'] !="login"){
                                 </span>
                                 </div>
                                 <input type="text" class="form-control float-right" name="tanggal_berlaku1" id="tanggal_berlaku1">
+                            </div>
+                        </div> -->
+
+                        <div class="form-group row">
+                            <label for="inputTanggal" class="col-sm-12 col-form-label">Tanggal Berlaku</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="tanggal_berlaku1" name="tanggal_berlaku1"/>
+                            </div>
+                            <div class="input-group-text">
+                                <i class="far fa-calendar-alt"></i>
                             </div>
                         </div>
 
@@ -183,8 +196,11 @@ if($_SESSION['status_ca'] !="login"){
 
                         <div class="form-group row">
                             <label for="inputTanggal" class="col-sm-12 col-form-label">Tanggal Berlaku</label>
-                            <div class="col-sm-12">
-                                <input type="date" class="form-control" id="inputTanggal" name="tanggal_berlaku" value=""/>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="datetime" name="tanggal_berlaku" value=""/>
+                            </div>
+                            <div class="input-group-text">
+                                <i class="far fa-calendar-alt"></i>
                             </div>
                         </div>
 
@@ -367,6 +383,11 @@ if($_SESSION['status_ca'] !="login"){
     <script src="plugins/moment/moment.min.js"></script>
     <script src="plugins/inputmask/jquery.inputmask.min.js"></script>
     <script src="plugins/number-thousand-separator/easy-number-separator.js"></script>
+    <!-- Minified JS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Minified Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Page specific script -->
     <script>
         function readURL(input) {
@@ -386,29 +407,29 @@ if($_SESSION['status_ca'] !="login"){
         });
 
      
-            //Datemask dd/mm/yyyy
-            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-            //Datemask2 mm/dd/yyyy
-            $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-            //Money Euro
-            $('[data-mask]').inputmask()
+        $(function () {
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes();
+            var dateTime = date+' '+time;
+            $("#datetime").datetimepicker({
+                format: 'yyyy-mm-dd hh:ii',
+                autoclose: true,
+                todayBtn: true,
+                startDate: dateTime
+            });
+        });
 
-            $(function () {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "paging": false,
-                "sorting": false,
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": false,
+        $(function () {
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes();
+            var dateTime = date+' '+time;
+            $("#tanggal_berlaku1").datetimepicker({
+                format: 'yyyy-mm-dd hh:ii',
+                autoclose: true,
+                todayBtn: true,
+                startDate: dateTime
             });
         });
         
@@ -461,26 +482,30 @@ if($_SESSION['status_ca'] !="login"){
             }
         });
 
-        $('#tanggal_berlaku1').daterangepicker()
+        // $('#tanggal_berlaku1').daterangepicker();
+
+        // $("#datetime").datetimepicker({
+        //     format: 'yyyy-mm-dd hh:ii'
+        // });
 
         //Date range as a button
-        $('#daterange-btn').daterangepicker(
-        {
-            ranges   : {
-            'Today'       : [moment(), moment()],
-            'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-            'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            },
-            startDate: moment().subtract(29, 'days'),
-            endDate  : moment()
-        },
-        function (start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-        }
-        )
+        // $('#daterange-btn').daterangepicker(
+        // {
+        //     ranges   : {
+        //     'Today'       : [moment(), moment()],
+        //     'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        //     'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+        //     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        //     'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+        //     'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        //     },
+        //     startDate: moment().subtract(29, 'days'),
+        //     endDate  : moment()
+        // },
+        // function (start, end) {
+        //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+        // }
+        // )
     </script>
 </body>
 

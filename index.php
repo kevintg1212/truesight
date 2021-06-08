@@ -2152,13 +2152,15 @@ include 'controller/conn.php';
 			</div>
 		</div>
 		<!-- End How To Work Area -->
-		<!-- Start CounteUp Area -->
+		<!-- Start CounteUp Area bg_image--2 -->
 		<div class="counterup_area section-pt-xl">
 			<div class="counterup_wrapper">
-				<div class="container bg_image--2">
+				<div class="container bg-dark rounded shadow-sm">
 					<?php
-					$result_head = mysqli_query($db2,"select * from `bannerPromo` where id_banner = 1");
-					while($d_head = mysqli_fetch_array($result_head)){
+					$i = 0;
+					$result_head = mysqli_query($db2,"select * from `bannerPromo` LIMIT 1");
+					while(($d_head = mysqli_fetch_array($result_head)) && $i < 1){
+					$i++;
 					$harga= $d_head['harga'];
 					$judul= $d_head['judul'];
 					$gambar= $d_head['gambar'];
@@ -2397,8 +2399,8 @@ include 'controller/conn.php';
 		</div>
 		<!-- End Product Area -->
 
-		<!-- Start Shipping Service -->
-		<div class="shipping_service bg_image--3 ptb--90">
+		<!-- Start Shipping Service bg_image--3 -->
+		<div class="shipping_service bg-white ptb--90 shadow-lg">
 			<div class="shipping_wrap">
 				<div class="row">
 
@@ -2599,7 +2601,13 @@ include 'controller/conn.php';
 
 	<script>
 		(function() {
-			var deadline = '2019-07-27 16:10';
+			<?php
+			$result_head = mysqli_query($db2,"select * from `bannerPromo` LIMIT 1");
+			$d_head = mysqli_fetch_array($result_head);
+			$date = $d_head['tanggal_berlaku'];
+			?>
+
+			var deadline = '<?php echo $date; ?>';
 		
 			function pad(num, size) {
 				var s = "0" + num;
