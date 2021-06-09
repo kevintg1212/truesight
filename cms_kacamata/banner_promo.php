@@ -89,13 +89,13 @@ if($_SESSION['status_ca'] !="login"){
                             </div>
                         </div>
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="inputLampiran">Gambar</label>
                             <input class="form-control" type="file" id="lampiran1" name="lampiran1">
-                            <label for="lampiran"><img id="blah"
-                                style="width: 200px; height: 200px; border: 1px solid black; margin-top: 30px; paddingL 10px;"
-                                src="img/upload.PNG" alt="your image" /></label>
-                        </div> -->
+                            <label for="lampiran"><img id="blah1"
+                                style="width: 200px; height: 200px; border: 1px solid black; margin-top: 30px; padding: 10px;"
+                                src="../img/upload.PNG" alt="your image" /></label>
+                        </div>
 
                         <div class="form-group row">
                             <label for="inputDiscount" class="col-sm-12 col-form-label">Harga</label>
@@ -145,6 +145,7 @@ if($_SESSION['status_ca'] !="login"){
                     </div>
 
                     <input type="hidden" class="form-group" id="id_banner1" name="id_banner1">
+                    <input type="hidden" class="form-group" id="nama_gambar" name="nama_gambar">
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
@@ -261,11 +262,20 @@ if($_SESSION['status_ca'] !="login"){
                         <div class="col-12">
                             <div class="card">
                                 <div style="text-align: right;">
+                                <?php 
+                                $bannerPromo = mysqli_query($db2,"select * from `bannerPromo`");
+                                if($bannerPromo){
+                                    echo "";
+                                } else { ?>
                                     <button  class="btn btn-success float-sm-right" data-toggle="modal"
                                         data-target="#modal-add" style="right: 0px; width: 200px; margin-top: 10px; margin-right: 20px;">
                                         Tambah Banner Promo
                                     </button>
+                                <?php
+                                }
+                                ?>
                                 </div>
+
 
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -301,6 +311,7 @@ if($_SESSION['status_ca'] !="login"){
                                                             data-v="<?php echo $d_head['tanggal_berlaku']; ?>"
                                                             data-i="<?php echo $d_head['status_banner']; ?>"
                                                             data-j="<?php echo $d_head['id_banner']; ?>"
+                                                            data-g="<?php echo $d_head['gambar']; ?>"
                                                             data-toggle="modal" data-target="#modal-edit-header"
                                                         style="width: 100px; margin-top: 10px; margin-right: 20px;">
                                                         <i class="fas fa-pencil-alt"></i> Edit
@@ -406,6 +417,25 @@ if($_SESSION['status_ca'] !="login"){
         readURL(this);
         });
 
+        function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            $('#blah1').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+        }
+
+        $("#lampiran1").change(function () {
+        readURL1(this);
+        });
+
+        // $("#lampiran1").change(function () {
+        // readURL(this);
+        // });
      
         $(function () {
             var today = new Date();
@@ -451,6 +481,7 @@ if($_SESSION['status_ca'] !="login"){
             var recipient_c = button.data('c');
             var recipient_i = button.data('i');
             var recipient_j = button.data('j');
+            var recipient_g = button.data('g');
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this);
@@ -459,12 +490,16 @@ if($_SESSION['status_ca'] !="login"){
             modal.find('.tanggal_berlaku1').val(recipient_v);
             modal.find('.status_banner1').val(recipient_i);
             modal.find('.id_banner1').val(recipient_j);
+            modal.find('.nama_gambar').val(recipient_g);
 
             document.getElementById("judul1").value = recipient_c;
             document.getElementById("harga1").value = recipient_e;
             document.getElementById("tanggal_berlaku1").value = recipient_v;
             document.getElementById("status_banner1").value = recipient_i;
             document.getElementById("id_banner1").value = recipient_j;
+            document.getElementById("nama_gambar").value = recipient_g;
+            document.getElementById("blah1").src = "../img/banner_promo/"+recipient_g;
+            // document.getElementById("lampiran1").value = recipient_g;
             
         })
 
@@ -506,6 +541,7 @@ if($_SESSION['status_ca'] !="login"){
         //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
         // }
         // )
+        
     </script>
 </body>
 
