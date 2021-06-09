@@ -34,7 +34,7 @@ session_start();
                         </div><!-- /.col -->
                         <div class="col-sm text-center">
                             <p for="" style="font-size:32px; font-weight:semi-bold">
-                                Selamat datang di Content Management System untuk Kacamata
+                                Selamat datang di Truesight's Content Management System
                             </p>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

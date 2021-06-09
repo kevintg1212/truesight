@@ -49,8 +49,8 @@ if($_SESSION['status_ca'] =="xx"){
       <div class="card-header text-center">
         <div class="row">
           <div class="col-12">
-            <h1>Content Management System</h1>
-            <h1>Kacamata</h1>
+            <h3>Content Management System</h3>
+            <h2>Truesight</h2>
           </div>
         </div>
       </div>
