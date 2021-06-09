@@ -264,7 +264,7 @@ if($_SESSION['status_ca'] !="login"){
                                 <div style="text-align: right;">
                                 <?php 
                                 $bannerPromo = mysqli_query($db2,"select * from `bannerPromo`");
-                                if($bannerPromo){
+                                if(mysqli_num_rows($bannerPromo) == 1){
                                     echo "";
                                 } else { ?>
                                     <button  class="btn btn-success float-sm-right" data-toggle="modal"
