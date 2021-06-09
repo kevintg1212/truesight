@@ -30,9 +30,7 @@ if($_SESSION['status_ca'] !="login"){
     <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- icon -->
     <link rel="icon" href="dist/img/logogram.png">
-    <!-- Minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="plugins/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
     <style>
         .none {
             display: none;
@@ -93,7 +91,7 @@ if($_SESSION['status_ca'] !="login"){
                             <label for="inputLampiran">Gambar</label>
                             <input class="form-control" type="file" id="lampiran1" name="lampiran1">
                             <label for="lampiran"><img id="blah1"
-                                style="width: 200px; height: 200px; border: 1px solid black; margin-top: 30px; padding: 10px;"
+                                style="height: 200px; border: 1px solid black; margin-top: 30px; padding: 10px;"
                                 src="../img/upload.PNG" alt="your image" /></label>
                         </div>
 
@@ -183,7 +181,7 @@ if($_SESSION['status_ca'] !="login"){
                             <label for="inputLampiran">Gambar</label>
                             <input class="form-control" type="file" id="lampiran" name="lampiran">
                             <label for="lampiran"><img id="blah"
-                                style="width: 200px; height: 200px; border: 1px solid black; margin-top: 30px; padding:10px;"
+                                style="height: 200px; border: 1px solid black; margin-top: 30px; padding:10px;"
                                 src="img/upload.PNG" alt="your image" /></label>
                         </div>
 
