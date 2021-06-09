@@ -28,6 +28,9 @@ if($_SESSION['status_ca'] !="login"){
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+        <!-- Minified Bootstrap CSS -->
+        
+        <link href="plugins/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <!-- icon -->
     <link rel="icon" href="dist/img/logogram.png">
 
