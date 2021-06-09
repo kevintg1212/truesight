@@ -271,7 +271,8 @@ while($d_head = mysqli_fetch_array($result_head)){
                                                     <input class="form-control" type="file" id="lampiran" name="lampiran">
                                                     <label for="lampiran"><img id="blah"
                                                         style="width: 200px; border: 1px solid black; margin-top: 30px; paddingL 10px;"
-                                                        src="img/gambarUtama/<?php echo $gambar; ?>" alt="your image" /></label>
+                                                        src="../img/gambarUtama/<?php echo $gambar; ?>" alt="your image" /></label>
+                                                        <input type="hidden" class="form-group" id="bannerLama" name="bannerLama" value="<?php echo $gambar; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">

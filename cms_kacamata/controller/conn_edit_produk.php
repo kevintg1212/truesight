@@ -5,6 +5,7 @@ session_start();
 $target_dir = "../../img/gambarUtama/";
 $target_file = $target_dir . basename($_FILES["lampiran"]["name"]);
 $name_image1 = basename($_FILES["lampiran"]["name"]);
+if($name_image1 != null) {
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
@@ -28,7 +29,10 @@ if ($uploadOk == 0) {
       echo "Sorry, there was an error uploading your file.";
     }
   }
+}else{
+  $name_image1 = mysqli_real_escape_string($db2,$_POST['bannerLama']);
 
+}
     $stmt1 = $db2->prepare("UPDATE `produk` set nama =?,  deskripsi =?, discount =?, harga =? ,gambar =? where id_produk = ?");
     $stmt1->bind_param("ssssss", $nama, $deskripsi, $discount, $harga, $gambar, $id_produk );
     

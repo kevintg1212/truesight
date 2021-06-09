@@ -86,13 +86,13 @@ if($_SESSION['status_ca'] !="login"){
                             </div>
                         </div>
 
-                        <!-- <div class="form-group">
-                            <label for="inputLampiran">Gambar</label>
-                            <input class="form-control" type="file" id="lampiran1" name="lampiran1">
+                        <div class="form-group">
+                            <label for="inputLampiran">Gambar banner</label>
+                            <input class="form-control" type="file" id="lampiran" name="lampiran">
                             <label for="lampiran"><img id="blah"
-                                style="width: 200px; height: 200px; border: 1px solid black; margin-top: 30px; paddingL 10px;"
-                                src="img/upload.PNG" alt="your image" /></label>
-                        </div> -->
+                                style="width: 200px; border: 1px solid black; margin-top: 30px; paddingL 10px;"
+                                src="../img/banner_1/" alt="your image" /></label>
+                        </div>
 
                         <div class="form-group row">
                             <label for="inputDiscount" class="col-sm-12 col-form-label">Text Discount</label>
@@ -113,6 +113,7 @@ if($_SESSION['status_ca'] !="login"){
                     </div>
 
                     <input type="hidden" class="form-group" id="id_banner1" name="id_banner1">
+                    <input type="hidden" class="form-group" id="bannerLama" name="bannerLama">
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
@@ -405,16 +406,19 @@ if($_SESSION['status_ca'] !="login"){
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this);
             modal.find('.judul1').val(recipient_c);
-            // modal.find('.lampiran1').val(recipient_e);
+            modal.find('.bannerLama').val(recipient_e);
             modal.find('.textDiscount1').val(recipient_v);
             modal.find('.text31').val(recipient_i);
             modal.find('.id_banner1').val(recipient_j);
 
+            
             document.getElementById("judul1").value = recipient_c;
-            // document.getElementById("lampiran1").value = recipient_e;
+            document.getElementById("bannerLama").value = recipient_e;
             document.getElementById("textDiscount1").value = recipient_v;
             document.getElementById("text31").value = recipient_i;
             document.getElementById("id_banner1").value = recipient_j;
+
+            document.getElementById("blah").src = "../img/banner_1/"+recipient_e;
             
         })
 
