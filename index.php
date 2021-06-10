@@ -131,10 +131,15 @@ include 'controller/conn.php';
 								<a href="#">Buy Now</a>
 							</div>
 
+							<?php 
+							if($d_head['text_discount'] != 0){
+							?>
 							<div class="rotate_titlE">
 								<h2>GET UP TO
 									<span><?php echo $d_head['text_discount'] ?> %</span> Off</h2>
 							</div>
+							
+							<?php } ?>
 						</div>
 					</div>
 				</div>

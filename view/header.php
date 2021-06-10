@@ -15,14 +15,23 @@
 			</div>
 			<div class="col-xl-9 col-lg-10 col-md-8">
 				<div class="header_right_sidebar">
+						<?php 
+						$no = 1;
+						$contact = mysqli_query($db2,"select * from `contact_us`");
+						while($d_head = mysqli_fetch_array($contact)){
+							$phone = $d_head['phone'];
+							$x = explode(" ", $phone);
+							$phone_number = str_replace("-", "", $x[1]);
+						?>
 						<div class="login_account">
-								<div class="mini_cat_box">
-									<a class="shop_cart_icon shop_trigger shopping_basket header-cart">
-									<i class="fab fa-whatsapp"></i>
-										<span class="cart_text"> +62-8213-1232-123</span>
-									</a>
-								</div>
+							<div class="mini_cat_box">
+								<a class="shop_cart_icon" href="https://api.whatsapp.com/send?phone=<?php echo $phone_number ?>">
+								<i class="fab fa-whatsapp"></i>
+									<span class="cart_text"> <?php echo $phone ?> </span>
+								</a>
 							</div>
+						</div>
+						<?php } ?>
 					<div class="glass_toggle_menu">
 						<nav class="mainmenu_nav mainmenu__nav">
 							<ul class="main_menu">

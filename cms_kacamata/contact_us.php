@@ -116,7 +116,7 @@ while($d_head = mysqli_fetch_array($result_head)){
                                             <div class="form-group row">
                                                 <label for="no_hp" class="col-sm-3 col-form-label">Telepon:</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $phone; ?>"/>
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $phone; ?>" data-inputmask='"mask": "(+62) 999-9999-9999"' data-mask/>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
