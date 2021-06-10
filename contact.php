@@ -46,7 +46,7 @@ $address_google = $d_head['address_google'];
         <!-- Start Contact Area -->
         <div class="contact_area section-ptb-xl">
             <div class="container">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-12">
                         <div class="gogle_map">
                             <div id="googleMap">
@@ -54,7 +54,7 @@ $address_google = $d_head['address_google'];
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row pt--120">
                     <div class="col-lg-5 col-md-5 col-12">
                         <div class="contact_adress">
@@ -71,7 +71,7 @@ $address_google = $d_head['address_google'];
                                     </div>
                                     <div class="contact-info-text">
                                         <p><span>Address:</span>  <?php echo $address; ?> </p>
-                                        <p><span>address_google:</span>  <?php echo $address_google; ?> </p>
+                                        <p><span>Click me:</span>  <a href="<?php echo $address_google; ?>"> <?php echo $address_google; ?> </a> </p>
                                     </div>
                                 </div>
 

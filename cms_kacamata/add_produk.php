@@ -88,7 +88,7 @@ if($_SESSION['status_ca'] !="login"){
                             <label for="nik" class="col-sm-12 col-form-label">Id Konsumen</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="idKonE" name="idKonE"
-                                    placeholder="Id Konsumen" value="" data-inputmask='"mask": "a{1,4}-9999"' data-mask>
+                                    placeholder="Id Konsumen" value="">
                             </div>
                         </div>
                     <div class="form-group row">
@@ -245,7 +245,7 @@ if($_SESSION['status_ca'] !="login"){
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="inputIdProduk">ID Produk</label>
-                                                    <input type="text" id="inputIdProduk" name="idProduk" class="form-control" required data-inputmask='"mask": "a{1,4}-9999"' data-mask>
+                                                    <input type="text" id="inputIdProduk" name="idProduk" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">

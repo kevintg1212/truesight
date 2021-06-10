@@ -391,8 +391,8 @@ include 'controller/conn.php';
 					<div class="col-lg-12">
 						<div class="product_tab_name justify-content-center nav" role="tablist">
 							<a class="active" href="#item1" data-toggle="tab"> all</a>
-							<a href="#item2" data-toggle="tab"> men</a>
-							<a href="#item3" data-toggle="tab"> women</a>
+							<!-- <a href="#item2" data-toggle="tab"> men</a>
+							<a href="#item3" data-toggle="tab"> women</a> -->
 						</div>
 					</div>
 				</div>

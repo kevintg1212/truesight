@@ -29,8 +29,8 @@ $view = $d_head['view'];
         <?php include "./view/header.php" ?>
         <!-- End Header Area -->
 
-        <!-- Start Bradcaump area -->
-        <div class="bradcaump_area bg_image--4">
+        <!-- Start Bradcaump area bg_image--4 -->
+        <div class="bradcaump_area bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -56,13 +56,18 @@ $view = $d_head['view'];
                         <div class="product__details__container">
                             <div class="tab_container big_img_container">
                                 <div class="big_img tab-pane fade show active" id="img1" role="tabpanel">
-                                    <img src="img/product/big-img.png" alt="gomes restaurant">
+                                    <img src="img/gambarUtama/<?php echo $gambar ?>" alt="gomes restaurant">
                                 </div>
-
-                                <div class="big_img tab-pane fade" id="img2" role="tabpanel">
-                                    <img src="img/product/big-img-2.png" alt="gomes restaurant">
+                                <?php 
+                                $i = 2;
+                                $result_head = mysqli_query($db2,"select * from `varian` where id_produk = '$id_produk'");
+                                while($d_head = mysqli_fetch_array($result_head)){
+                                ?>
+                                <div class="big_img tab-pane fade" id="img<?php echo $i; ?>" role="tabpanel">
+                                    <img src="img/varian/<?php echo $d_head['gambar'] ?>" alt="gomes restaurant">
                                 </div>
-                                <div class="big_img tab-pane fade" id="img3" role="tabpanel">
+                                <?php $i++; } ?>
+                                <!-- <div class="big_img tab-pane fade" id="img3" role="tabpanel">
                                     <img src="img/product/big-img-3.png" alt="gomes restaurant">
                                 </div>
                                 <div class="big_img tab-pane fade" id="img4" role="tabpanel">
@@ -70,16 +75,22 @@ $view = $d_head['view'];
                                 </div>
                                 <div class="big_img tab-pane fade" id="img5" role="tabpanel">
                                     <img src="img/product/big-img-2.png" alt="gomes restaurant">
-                                </div>
+                                </div> -->
                             </div>
                             <div class="sm_roduct_nav nav nav-tabs" role="tablist">
                                 <a class="active" id="img1-tab" data-toggle="tab" href="#img1" role="tab" aria-controls="img1" aria-selected="true">
-                                    <img src="img/product/sm1.png" alt="gomes restaurant">
+                                    <img src="img/gambarUtama/<?php echo $gambar ?>" alt="gomes restaurant">
                                 </a>
-                                <a id="nav-img2-tab" data-toggle="tab" href="#img2" role="tab" aria-controls="img2" aria-selected="false">
-                                    <img src="img/product/sm2.png" alt="gomes restaurant">
+                                <?php 
+                                $i = 2;
+                                $result_head = mysqli_query($db2,"select * from `varian` where id_produk = '$id_produk'");
+                                while($d_head = mysqli_fetch_array($result_head)){
+                                ?>
+                                <a id="nav-img3-tab" data-toggle="tab" href="#img<?php echo $i; ?>" role="tab" aria-controls="img<?php echo $i; ?>" aria-selected="false">
+                                    <img src="img/varian/<?php echo $d_head['gambar']; ?>" alt="gomes restaurant">
                                 </a>
-                                <a id="nav-img3-tab" data-toggle="tab" href="#img3" role="tab" aria-controls="img3" aria-selected="false">
+                                <?php $i++; } ?>
+                                <!-- <a id="nav-img3-tab" data-toggle="tab" href="#img3" role="tab" aria-controls="img3" aria-selected="false">
                                     <img src="img/product/sm3.png" alt="gomes restaurant">
                                 </a>
                                 <a id="nav-img4-tab" data-toggle="tab" href="#img4" role="tab" aria-controls="img4" aria-selected="false">
@@ -87,7 +98,7 @@ $view = $d_head['view'];
                                 </a>
                                 <a id="nav-img5-tab" data-toggle="tab" href="#img5" role="tab" aria-controls="img5" aria-selected="false">
                                     <img src="img/product/sm2.png" alt="gomes restaurant">
-                                </a>
+                                </a> -->
                             </div>
 
                         </div>
@@ -175,7 +186,7 @@ $view = $d_head['view'];
                         <div class="col-lg-12">
                             <div class="description_nav nav nav-tabs d-block" role="tablist">
                                 <a class="active" id="descrip-tab" data-toggle="tab" href="#descrip" role="tab" aria-controls="descrip" aria-selected="true">Product Description</a>
-                                <a id="nav-review" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews</a>
+                                <!-- <a id="nav-review" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews</a> -->
                                 <a id="nav-product-tag" data-toggle="tab" href="#product" role="tab" aria-controls="product" aria-selected="false">Product Tags</a>
                             </div>
                         </div>
@@ -186,7 +197,7 @@ $view = $d_head['view'];
                                 <?php echo $deskripsi; ?>
                             </div>
                         </div>
-                        <div class="single_review_content tab-pane fade" id="review" role="tabpanel">
+                        <!-- <div class="single_review_content tab-pane fade" id="review" role="tabpanel">
                             <div class="classs__review__inner">
                                 <h4>Add A review</h4>
                                 <p>Your E-mail Address Will not be published. Required field are marked *</p>
@@ -226,10 +237,10 @@ $view = $d_head['view'];
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="single_review_content tab-pane fade" id="product" role="tabpanel">
                             <div class="content">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p> <?php echo $tags; ?></p>
                             </div>
                         </div>
                     </div>
@@ -239,96 +250,9 @@ $view = $d_head['view'];
         <!-- End Single Product -->
 
         <!-- Start Footer Area -->
-        <footer class="footer_area">
-            <div class="footer_top bg-cat--1">
-                <div class="container">
-                    <div class="row">
-                        <!-- Start Single Footer -->
-                        <div class="col-lg-3 col-sm-6 col-12 mb--50">
-                            <div class="footer_widget">
-                                <h2 class="ft_widget_title">Los Angeles</h2>
-                                <div class="textwidget">
-                                    <p>254 Roselen de Square
-                                        <br>Century Street, Haven Tower
-                                        <br>Los Angeles, USA</p>
-                                    <p>01254 658 987, 02365 987 456</p>
-                                    <p>info@example.com
-                                        <br>www.example.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Footer -->
-                        <!-- Start Single Footer -->
-                        <div class="col-lg-3 col-sm-6 col-12 mb--50">
-                            <div class="footer_widget">
-                                <h2 class="ft_widget_title">Manchester</h2>
-                                <div class="textwidget">
-                                    <p>254 Roselen de Square
-                                        <br>Century Street, Haven Tower
-                                        <br>Los Angeles, USA</p>
-                                    <p>01254 658 987, 02365 987 456</p>
-                                    <p>info@example.com
-                                        <br>www.example.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Footer -->
-                        <!-- Start Single Footer -->
-                        <div class="col-lg-3 col-sm-6 col-12 mb--50">
-                            <div class="footer_widget">
-                                <h2 class="ft_widget_title">Abu Dhabi</h2>
-                                <div class="textwidget">
-                                    <p>Oxeler Bin Square
-                                        <br>Seleya Street, Silicon Tower
-                                        <br>Abu Dhabi, UAE</p>
-                                    <p>09365 856 658, 09683 2656 889</p>
-                                    <p>info@example.com
-                                        <br>www.example.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Footer -->
-                        <!-- Start Single Footer -->
-                        <div class="col-lg-3 col-sm-6 col-12 mb--50">
-                            <div class="footer_widget">
-                                <h2 class="ft_widget_title">Newsletter</h2>
-                                <div class="textwidget">
-                                    <div class="input_box">
-                                        <input type="email" placeholder="Enter your email here">
-                                        <button>Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Footer -->
-                    </div>
-                </div>
-            </div>
-            <div class="copyright bg-cat--2">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <div class="copy_text">
-                                <p>Copyright © 2018, All Rights Reserved.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="footer_menu d-flex justify-content-end">
-                                <li>
-                                    <a href="#">Product Tracking</a>
-                                </li>
-                                <li>
-                                    <a href="#">Terms & Conditions</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php 
+		include 'view/footer.php';
+		?>
         <!-- End Footer Area -->
     </div>
     <!--// Wrapper -->
