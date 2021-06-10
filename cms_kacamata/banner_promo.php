@@ -486,6 +486,7 @@ if($_SESSION['status_ca'] !="login"){
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this);
+            if (recipient_e!=undefined) {
             modal.find('.judul1').val(recipient_c);
             modal.find('.harga1').val(recipient_e);
             modal.find('.tanggal_berlaku1').val(recipient_v);
@@ -501,7 +502,7 @@ if($_SESSION['status_ca'] !="login"){
             document.getElementById("nama_gambar").value = recipient_g;
             document.getElementById("blah1").src = "../img/banner_promo/"+recipient_g;
             // document.getElementById("lampiran1").value = recipient_g;
-            
+            }
         })
 
 
