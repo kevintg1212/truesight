@@ -1,6 +1,7 @@
 <?php 
 include 'conn.php';
 session_start();
+date_default_timezone_set("Asia/Bangkok");
 
     $target_dir = "../../img/gambarUtama/";
     $target_file = $target_dir . basename($_FILES["lampiran"]["name"]);
@@ -29,8 +30,8 @@ session_start();
 		}
 	  }
 
-    $stmt1 = $db2->prepare("INSERT INTO `produk` (id_produk, nama, deskripsi, discount, harga, gambar) VALUES(?, ?, ?, ?, ?, ?)");
-    $stmt1->bind_param("ssssss", $id_produk, $nama, $deskripsi, $discount, $harga, $name_image1);
+    $stmt1 = $db2->prepare("INSERT INTO `produk` (id_produk, nama, deskripsi, discount, harga, gambar, created_at) VALUES(?, ?, ?, ?, ?, ? ,?)");
+    $stmt1->bind_param("sssssss", $id_produk, $nama, $deskripsi, $discount, $harga, $name_image1, $createdDate);
     
     
     $id_produk = mysqli_real_escape_string($db2,$_POST['idProduk']);
@@ -38,6 +39,7 @@ session_start();
     $deskripsi = mysqli_real_escape_string($db2,$_POST['deskripsi']);
     $discount = mysqli_real_escape_string($db2,$_POST['discount']);
     $harga = mysqli_real_escape_string($db2,$_POST['harga']);
+    $createdDate = date("Y-m-d h:i:sa");
 
     $b = str_replace( ',', '', $harga );
 

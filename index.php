@@ -149,8 +149,9 @@ include 'controller/conn.php';
 
 		</div>
 		<!-- End Slider Area -->
+
 		<!-- Start Product Area -->
-		<div class="product_area section-pt-xl section-pb-xl bg-white">
+		<!-- <div class="product_area section-pt-xl section-pb-xl bg-white">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -160,17 +161,22 @@ include 'controller/conn.php';
 						</div>
 					</div>
 				</div>
-				<div class="row mt--20">
+				<div class="row mt--20"> -->
+				<!-- PRODUK TERBARU diambil 4 Teratas -->
+					<?php 
+					$result_head = mysqli_query($db2,"select * from `produk` LIMIT 4");
+					while($d_head = mysqli_fetch_array($result_head)){
+					?>
 					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
+					<!-- <div class="col-lg-3 col-xl-3 col-sm-6 col-12">
 						<div class="product">
 							<div class="thumb">
 								<a href="single-product.html">
-									<img src="img/product/product-1.jpg" alt="product img">
+									<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img" style="width: 270px;">
 								</a>
 								<div class="product_action">
 									<h4>
-										<a href="single-product.html">Rinosin Glasses</a>
+										<a href="single-product.html"><?php echo $d_head['nama']; ?> </a>
 									</h4>
 									<ul class="cart_action">
 										<li>
@@ -197,19 +203,20 @@ include 'controller/conn.php';
 								</div>
 								<div class="content">
 									<h4>
-										<a href="single-product.html">Rinosin Glasses</a>
+										<a href="single-product.html"><?php echo $d_head['nama']; ?></a>
 									</h4>
 									<ul class="price">
-										<li>$35</li>
-										<li class="old-price">$35</li>
-									</ul>
+										<li><?php echo $d_head['harga']; ?></li> -->
+										<!-- <li class="old-price">$35</li> -->
+									<!-- </ul>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- End Single Product -->
+					<?php } ?>
 					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
+					<!-- <div class="col-lg-3 col-xl-3 col-sm-6 col-12">
 						<div class="product">
 							<div class="thumb">
 								<a href="single-product.html">
@@ -253,129 +260,13 @@ include 'controller/conn.php';
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- End Single Product -->
-					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
-						<div class="product">
-							<div class="thumb">
-								<a href="single-product.html">
-									<img src="img/product/product-3.jpg" alt="product img">
-								</a>
-								<div class="product_action">
-									<h4>
-										<a href="single-product.html">Easin Glasses</a>
-									</h4>
-									<ul class="cart_action">
-										<li>
-											<a href="cart.html">
-												<img src="img/icons/add_to_cart.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="img/icons/compare_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="wishlist.html">
-												<img src="img/icons/wishlist_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a title="Quick View" class="quickview" href="#">
-												<img src="img/icons/quick_view.png" alt="icons">
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="content">
-									<h4>
-										<a href="single-product.html">Easin Glasses</a>
-									</h4>
-									<ul class="price">
-										<li>$35</li>
-										<li class="old-price">$35</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Product -->
-					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
-						<div class="product">
-							<div class="thumb">
-								<a href="single-product.html">
-									<img src="img/product/product-4.jpg" alt="product img">
-								</a>
-								<div class="product_action">
-									<h4>
-										<a href="single-product.html">Macrox Glasses</a>
-									</h4>
-									<ul class="cart_action">
-										<li>
-											<a href="cart.html">
-												<img src="img/icons/add_to_cart.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="img/icons/compare_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="wishlist.html">
-												<img src="img/icons/wishlist_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a title="Quick View" class="quickview" href="#">
-												<img src="img/icons/quick_view.png" alt="icons">
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="content">
-									<h4>
-										<a href="single-product.html">Macrox Glasses</a>
-									</h4>
-									<ul class="price">
-										<li>$35</li>
-										<li class="old-price">$35</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
+					</div> -->
 					<!-- End Single Product -->
 				</div>
 			</div>
 		</div>
+		
 		<!-- End Product Area -->
-		<!-- Start Banner Area -->
-		<div class="banner_area">
-			<div class="row row--2">
-
-				<?php 
-				$result_head = mysqli_query($db2,"select * from `banner2`");
-				while($d_head = mysqli_fetch_array($result_head)){
-				?>
-				<div class="col-lg-4 col-sm-6 col-12">
-					<div class="banner">
-						<div class="thumb">
-							<a href="#">
-								<img src="img/banner_2/<?php echo $d_head['gambar']?>" alt="banner img">
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<?php } ?>
-
-			</div>
-		</div>
-		<!-- End Banner Area -->
 		<!-- Start Product Area -->
 		<div class="product_area section-pt-xl section-pb-xl bg-white">
 			<div class="container">
@@ -399,16 +290,20 @@ include 'controller/conn.php';
 				<div class="tab_content">
 					<!-- Start Single Content -->
 					<div class="row single_content tab-pane fade show active" id="item1" role="tabpanel">
+						<?php 
+						$result_head = mysqli_query($db2,"select * from `produk` ORDER BY created_at DESC LIMIT 16");
+						while($d_head = mysqli_fetch_array($result_head)){
+						?>
 						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
+						<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
 							<div class="product">
 								<div class="thumb">
 									<a href="single-product.html">
-										<img src="img/product/product-1.jpg" alt="product img">
+										<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img" style="width: 270px;">
 									</a>
 									<div class="product_action">
 										<h4>
-											<a href="single-product.html">Rinosin Glasses</a>
+											<a href="single-product.html"><?php echo $d_head['nama']; ?> </a>
 										</h4>
 										<ul class="cart_action">
 											<li>
@@ -435,17 +330,18 @@ include 'controller/conn.php';
 									</div>
 									<div class="content">
 										<h4>
-											<a href="single-product.html">Rinosin Glasses</a>
+											<a href="single-product.html"><?php echo $d_head['nama']; ?></a>
 										</h4>
 										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
+											<li><?php echo $d_head['harga']; ?></li>
+											<!-- <li class="old-price">$35</li> -->
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- End Single Product -->
+						<?php } ?>
 						<!-- Start Single Product -->
 						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
 							<div class="product">
@@ -487,476 +383,6 @@ include 'controller/conn.php';
 										<ul class="price">
 											<li>$35</li>
 											<li class="old-price">$10</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-3.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Macro Melodi</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Macro Melodi</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-4.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Oakley Glasses</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Oakley Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-5.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Bledent Glasses</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Bledent Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-6.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Bledent Glasses</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Bledent Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-8.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Macrox Glasses</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Macrox Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-9.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Sipleno Rayond</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Sipleno Rayond</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-10.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Bayamo Glasses</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Bayamo Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-11.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Xenorex Glasses</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Xenorex Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$35</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-12.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Movilark Raison</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Movilark Raison</a>
-										</h4>
-										<ul class="price">
-											<li>$10</li>
-											<li class="old-price">$50</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-13.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Rinosin Glasses</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Rinosin Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$20</li>
-											<li class="old-price">$40</li>
 										</ul>
 									</div>
 								</div>
@@ -2105,8 +1531,34 @@ include 'controller/conn.php';
 			</div>
 		</div>
 		<!-- End Product Area -->
+
+		<!-- Start Banner Area -->
+		<div class="banner_area mt--20">
+			<div class="row row--2">
+
+				<?php 
+				$result_head = mysqli_query($db2,"select * from `banner2`");
+				while($d_head = mysqli_fetch_array($result_head)){
+				?>
+				<div class="col-lg-4 col-sm-6 col-12">
+					<div class="banner">
+						<div class="thumb">
+							<a href="#">
+								<img src="img/banner_2/<?php echo $d_head['gambar']?>" alt="banner img">
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<?php } ?>
+
+			</div>
+		</div>
+		<!-- End Banner Area -->
+
+
 		<!-- Start How To Work Area -->
-		<div class="work_area bg-dark">
+		<!-- <div class="work_area bg-dark">
 			<div class="row row--0 align-items-center">
 				<div class="col-lg-12 col-12 col-xl-8">
 					<div class="row working_wrapper">
@@ -2155,10 +1607,10 @@ include 'controller/conn.php';
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End How To Work Area -->
 		<!-- Start CounteUp Area bg_image--2 -->
-		<div class="counterup_area section-pt-xl">
+		<div class="counterup_area section-pt-xl mb-5">
 			<div class="counterup_wrapper">
 				<div class="container bg-dark rounded shadow-sm">
 					<?php
@@ -2199,8 +1651,9 @@ include 'controller/conn.php';
 		</div>
 		<!-- End CounteUp Area -->
 
+						
 		<!-- Start Product Area -->
-		<div class="product_area section-pt-xl section-pb-xl bg-white">
+		<!-- <div class="product_area section-pt-xl section-pb-xl bg-white">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -2210,9 +1663,9 @@ include 'controller/conn.php';
 						</div>
 					</div>
 				</div>
-				<div class="row mt--20">
+				<div class="row mt--20"> -->
 					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
+					<!-- <div class="col-lg-3 col-xl-3 col-sm-6 col-12">
 						<div class="product">
 							<div class="thumb">
 								<a href="single-product.html">
@@ -2256,154 +1709,13 @@ include 'controller/conn.php';
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<!-- End Single Product -->
-					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
-						<div class="product">
-							<div class="thumb">
-								<a href="single-product.html">
-									<img src="img/product/product-2.jpg" alt="product img">
-								</a>
-								<div class="product_action">
-									<h4>
-										<a href="single-product.html">Silacon Glasses</a>
-									</h4>
-									<ul class="cart_action">
-										<li>
-											<a href="cart.html">
-												<img src="img/icons/add_to_cart.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="img/icons/compare_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="wishlist.html">
-												<img src="img/icons/wishlist_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a title="Quick View" class="quickview" href="#">
-												<img src="img/icons/quick_view.png" alt="icons">
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="content">
-									<h4>
-										<a href="single-product.html">Silacon Glasses</a>
-									</h4>
-									<ul class="price">
-										<li>$35</li>
-										<li class="old-price">$35</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Product -->
-					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
-						<div class="product">
-							<div class="thumb">
-								<a href="single-product.html">
-									<img src="img/product/product-3.jpg" alt="product img">
-								</a>
-								<div class="product_action">
-									<h4>
-										<a href="single-product.html">Easin Glasses</a>
-									</h4>
-									<ul class="cart_action">
-										<li>
-											<a href="cart.html">
-												<img src="img/icons/add_to_cart.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="img/icons/compare_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="wishlist.html">
-												<img src="img/icons/wishlist_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a title="Quick View" class="quickview" href="#">
-												<img src="img/icons/quick_view.png" alt="icons">
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="content">
-									<h4>
-										<a href="single-product.html">Easin Glasses</a>
-									</h4>
-									<ul class="price">
-										<li>$35</li>
-										<li class="old-price">$35</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Product -->
-					<!-- Start Single Product -->
-					<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
-						<div class="product">
-							<div class="thumb">
-								<a href="single-product.html">
-									<img src="img/product/product-4.jpg" alt="product img">
-								</a>
-								<div class="product_action">
-									<h4>
-										<a href="single-product.html">Macrox Glasses</a>
-									</h4>
-									<ul class="cart_action">
-										<li>
-											<a href="cart.html">
-												<img src="img/icons/add_to_cart.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<img src="img/icons/compare_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a href="wishlist.html">
-												<img src="img/icons/wishlist_icon.png" alt="icons">
-											</a>
-										</li>
-										<li>
-											<a title="Quick View" class="quickview" href="#">
-												<img src="img/icons/quick_view.png" alt="icons">
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="content">
-									<h4>
-										<a href="single-product.html">Macrox Glasses</a>
-									</h4>
-									<ul class="price">
-										<li>$35</li>
-										<li class="old-price">$35</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Product -->
-				</div>
+				<!-- </div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End Product Area -->
-
+		
 		<!-- Start Shipping Service bg_image--3 -->
 		<div class="shipping_service bg-white ptb--90 shadow-lg">
 			<div class="shipping_wrap">
