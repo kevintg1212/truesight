@@ -4,18 +4,45 @@
 include 'controller/conn.php';
 ?>
 
-<?php include "./view/head.html" ?>
+<?php include "./view/head.html" ;
+if(isset($_GET['sort_by'])){
+    $sort_by = $_GET['sort_by'];
+}else{
+    $sort_by = 1;
+}
+if(isset($_GET['search'])){
+    $search = $_GET['search'];
+}else{
+    $search = "";
+}
+if ($search != "") {
+    $sql_search = "WHERE nama like '%$search%'";
+}else{
+    $sql_search = "";
+}
+if ($sort_by == 1) {
+    $sql_sort = "ORDER BY nama ASC";
+}else if ($sort_by == 2) {
+    $sql_sort = "ORDER BY view DESC";
+}else if ($sort_by == 3) {
+    $sql_sort = "ORDER BY created_at DESC";
+}else if ($sort_by == 4) {
+    $sql_sort = "ORDER BY harga ASC";
+}else if ($sort_by == 5) {
+    $sql_sort = "ORDER BY harga DESC";
+}
+?>
 
 <body>
 
-	<!-- Wrapper -->
-	<div id="wrapper" class="wrapper">
+    <!-- Wrapper -->
+    <div id="wrapper" class="wrapper">
 
-		<!-- Header -->
+        <!-- Header -->
         <?php include "./view/header.php" ?>
         <!-- End Header Area -->
 
-		<!-- Cart Overlay -->
+        <!-- Cart Overlay -->
         <div class="body_overlay"></div>
         <!-- Start Bradcaump area -->
         <div class="bradcaump_area bg_image--4">
@@ -23,18 +50,18 @@ include 'controller/conn.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump_inner text-center">
-                        	<h2 class="bradcaump-title">Shop</h2>
+                            <h2 class="bradcaump-title">Shop</h2>
                             <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.html">Home</a>
-                              <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Shop</span>
+                                <a class="breadcrumb_item" href="index.html">Home</a>
+                                <span class="brd-separetor">/</span>
+                                <span class="breadcrumb_item active">Shop</span>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Bradcaump area --> 
+        <!-- End Bradcaump area -->
 
 
         <!-- Start Shop Area -->
@@ -46,13 +73,15 @@ include 'controller/conn.php';
                         <div class="shop_sidebar">
                             <!-- Start Single Wedget -->
                             <div class="sidebar_widget search mb--60">
+                            
                                 <h2 class="sidebar_title">Search</h2>
                                 <div class="sidebar_search">
-                                    <form action="#">
-                                        <input type="text" placeholder="Search for:">
+                                    <form>
+                                        <input name="search" id="search" type="text" placeholder="Search for:" value="<?php echo $search; ?>" onChange="changeSearch()">
                                         <button type="submit"><i class="ti-search"></i></button>
                                     </form>
                                 </div>
+                                
                             </div>
                             <!-- End Single Wedget -->
 
@@ -116,65 +145,73 @@ include 'controller/conn.php';
 
 
                         </div>
-					</div>
-					
-                    <div class="col-lg-9 col-12 order-1 order-lg-2">
-						<div class="shop_product_area">
-							<div class="shop-bar-area">
-								<div class="shop-filter-tab">
-									<div class="view_mode justify-content-center nav" role="tablist">
-										<a class="active" href="#tab1" data-toggle="tab"> <i class="ti-layout-grid4-alt"></i></a>
-										<a class="" href="#tab2" data-toggle="tab"><i class="ti-list"></i></a>
-									</div>
-								</div>
-								<div class="shop-found-selector">
-									<!-- <p>Showing 1–12 of 16 results</p> -->
-									<select>
-										<option>Sort by popularity</option>
-										<option>Sort by average rating</option>
-										<option>Sort by newness</option>
-										<option>Sort by price: low to high</option>
-										<option>Sort by price: high to low</option>
-									</select>
-								</div>
-							</div>
+                    </div>
 
-							<div class="tab_content">
-								<div class="row single_grid_product tab-pane fade show active" id="tab1" role="tabpanel">
-									<?php 
-									$result_head = mysqli_query($db2,"select * from `produk`");
+                    <div class="col-lg-9 col-12 order-1 order-lg-2">
+                        <div class="shop_product_area">
+                            <div class="shop-bar-area">
+                                <div class="shop-filter-tab">
+                                    <div class="view_mode justify-content-center nav" role="tablist">
+                                        <a class="active" href="#tab1" data-toggle="tab"> <i
+                                                class="ti-layout-grid4-alt"></i></a>
+                                        <a class="" href="#tab2" data-toggle="tab"><i class="ti-list"></i></a>
+                                    </div>
+                                </div>
+                                <div class="shop-found-selector">
+                                    <!-- <p>Showing 1–12 of 16 results</p> -->
+                                    <select name="sort_by" id="sort_by" onChange="changeCheck()" style="width: 82%;">
+                                        <option value="1" <?php if ($sort_by==1) {echo "selected";}?>>Sort by alphabetical</option>
+                                        <option value="2" <?php if ($sort_by==2) {echo "selected";}?>>Sort by views</option>
+                                        <option value="3" <?php if ($sort_by==3) {echo "selected";}?>>Sort by lastest</option>
+                                        <option value="4" <?php if ($sort_by==4) {echo "selected";}?>>Sort by price: low to high</option>
+                                        <option value="5" <?php if ($sort_by==5) {echo "selected";}?>>Sort by price: high to low</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="tab_content">
+                                <div class="row single_grid_product tab-pane fade show active" id="tab1"
+                                    role="tabpanel">
+                                    <?php 
+									$result_head = mysqli_query($db2,"select * from `produk` $sql_search $sql_sort");
 									while($d_head = mysqli_fetch_array($result_head)){
 									?>
-									<!-- Start Single Product -->
-									<div class="col-lg-6 col-xl-4 col-sm-6 col-12">
-										<div class="product">
-											<div class="thumb">
-												<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>">
-													<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img" style="width: 270px;">
-												</a>
-												<div class="product_action">
-													<h4><a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a></h4>
-													<!-- <ul class="cart_action">
+                                    <!-- Start Single Product -->
+                                    <div class="col-lg-6 col-xl-4 col-sm-6 col-12">
+                                        <div class="product">
+                                            <div class="thumb">
+                                                <a
+                                                    href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>">
+                                                    <img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>"
+                                                        alt="product img" style="width: 270px;">
+                                                </a>
+                                                <div class="product_action">
+                                                    <h4><a
+                                                            href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a>
+                                                    </h4>
+                                                    <!-- <ul class="cart_action">
 														<li><a href="cart.html"><img src="img/icons/add_to_cart.png" alt="icons"></a></li>
 														<li><a href="#"><img src="img/icons/compare_icon.png" alt="icons"></a></li>
 														<li><a href="wishlist.html"><img src="img/icons/wishlist_icon.png" alt="icons"></a></li>
 														<li><a title="Quick View" class="quickview" href="#"><img src="img/icons/quick_view.png" alt="icons"></a></li>
 													</ul> -->
-												</div>
-												<div class="content">
-													<h4><a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a></h4>
-													<ul class="price">
+                                                </div>
+                                                <div class="content">
+                                                    <h4><a
+                                                            href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a>
+                                                    </h4>
+                                                    <ul class="price">
                                                         <?php $harga = $d_head['harga']; ?>
-											            <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-									<?php } ?>
-									<!-- End Single Product -->
-									<!-- Start Single Product -->
-									<!-- <div class="col-12">
+                                                        <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+                                    <!-- End Single Product -->
+                                    <!-- Start Single Product -->
+                                    <!-- <div class="col-12">
 										<div class="product_list">
 											<div class="product_list__thumb">
 												<a href="single-product.html">
@@ -196,59 +233,66 @@ include 'controller/conn.php';
 											</div>
 										</div>
 									</div> -->
-									<!-- End Single Product -->
-								</div>
+                                    <!-- End Single Product -->
+                                </div>
 
                                 <div class="row single_grid_product tab-pane fade" id="tab2" role="tabpanel">
-									<!-- Start Single Product -->
+                                    <!-- Start Single Product -->
                                     <?php
-                                    $result_head = mysqli_query($db2,"select * from `produk`"); 
+                                    $result_head = mysqli_query($db2,"select * from `produk` $sql_search $sql_sort"); 
 									while($d_head = mysqli_fetch_array($result_head)){
                                         $harga = $d_head['harga'];
 									?>
-									<div class="col-12">
-										<div class="product_list">
-											<div class="product_list__thumb">
-												<a href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>">
-													<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img">
-												</a>
-											</div>
-											<div class="product_list__content">
-												<h4><a href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><?php echo $d_head['nama']; ?></a></h4>
-												<ul class="price">
+                                    <div class="col-12">
+                                        <div class="product_list">
+                                            <div class="product_list__thumb">
+                                                <a
+                                                    href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>">
+                                                    <img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>"
+                                                        alt="product img">
+                                                </a>
+                                            </div>
+                                            <div class="product_list__content">
+                                                <h4><a
+                                                        href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><?php echo $d_head['nama']; ?></a>
+                                                </h4>
+                                                <ul class="price">
                                                     <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
-												</ul>
-												<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born</p>
-												<ul class="cart_action">
-													<li><a href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><img src="img/icons/quick_view.png" alt="icons"></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<!-- End Single Product -->
+                                                </ul>
+                                                <p>But I must explain to you how all this mistaken idea of denouncing
+                                                    pleasure and praising pain was born</p>
+                                                <ul class="cart_action">
+                                                    <li><a
+                                                            href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><img
+                                                                src="img/icons/quick_view.png" alt="icons"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Product -->
                                     <?php } ?>
-								</div>
-							</div>
-							<!-- <ul class="pagination_style">
+                                </div>
+                            </div>
+                            <!-- <ul class="pagination_style">
 								<li><a class="active" href="#">1</a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#"><i class="ti-angle-right"></i></a></li>
 							</ul> -->
-						</div>
-					</div>
+                        </div>
+                    </div>
 
-				</div>
-				
+                </div>
+
             </div>
         </div>
         <!-- End Shop Area -->
 
 
-		<!-- Start Footer Area -->
-		<?php 
+        <!-- Start Footer Area -->
+        <?php 
 		include 'view/footer.php';
 		?>
-		<!-- End Footer Area -->
+        <!-- End Footer Area -->
         <!-- Quick View Modal -->
         <div class="quick-view-modal">
             <div class="quick-view-modal-inner">
@@ -273,7 +317,7 @@ include 'controller/conn.php';
                                     <img src="img/product/big-img.png" alt="product image">
                                 </a>
                             </div>
-                            <div class="product-details-thumbs slider-navigation-2">										
+                            <div class="product-details-thumbs slider-navigation-2">
                                 <img src="img/product/sm1.png" alt="product image thumb">
                                 <img src="img/product/sm2.png" alt="product image thumb">
                                 <img src="img/product/sm3.png" alt="product image thumb">
@@ -282,11 +326,11 @@ include 'controller/conn.php';
                             </div>
                         </div>
                         <!--// Product Details Left -->
-            
+
                         <!-- Product Details Right -->
                         <div class="product-details-right">
                             <h5 class="product-title">Aenean Eu Tristique</h5>
-                            
+
                             <div class="ratting-stock-availbility">
                                 <div class="ratting-box">
                                     <span><i class="fa fa-star"></i></span>
@@ -297,22 +341,27 @@ include 'controller/conn.php';
                                 </div>
                                 <span class="stock-available">In stock</span>
                             </div>
-                            
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. adipiscing cursus eu, suscipit id nulla.</p>
-                            
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est
+                                tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis
+                                justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id
+                                nulla. adipiscing cursus eu, suscipit id nulla.</p>
+
                             <div class="price-box">
                                 <span class="pricebox-price">£80.00</span>
                             </div>
-            
+
                             <div class="product-details-quantity">
                                 <div class="quantity-select">
-									<div class="pro-quantity"><div class="pro-qty"><input type="text" value="1"></div></div>
-								</div>
+                                    <div class="pro-quantity">
+                                        <div class="pro-qty"><input type="text" value="1"></div>
+                                    </div>
+                                </div>
                                 <a href="#" class="add-to-cart-button">
                                     <span>ADD TO CART</span>
                                 </a>
                             </div>
-            
+
                             <div class="product-details-color">
                                 <span>Color :</span>
                                 <ul>
@@ -322,7 +371,7 @@ include 'controller/conn.php';
                                     <li class="black"><span></span></li>
                                 </ul>
                             </div>
-            
+
                             <div class="product-details-size">
                                 <span>Size :</span>
                                 <ul>
@@ -333,7 +382,7 @@ include 'controller/conn.php';
                                     <li><span>XXL</span></li>
                                 </ul>
                             </div>
-            
+
                             <div class="product-details-categories">
                                 <span>Categories :</span>
                                 <ul>
@@ -342,7 +391,7 @@ include 'controller/conn.php';
                                     <li><a href="shop.html">Women</a></li>
                                 </ul>
                             </div>
-            
+
                             <div class="product-details-tags">
                                 <span>Tags :</span>
                                 <ul>
@@ -350,7 +399,7 @@ include 'controller/conn.php';
                                     <li><a href="shop.html">Television</a></li>
                                 </ul>
                             </div>
-            
+
                             <div class="product-details-socialshare">
                                 <span>Share :</span>
                                 <ul>
@@ -360,29 +409,46 @@ include 'controller/conn.php';
                                     <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                                     <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                                 </ul>
-                            </div> 
+                            </div>
                         </div>
                         <!--// Product Details Right -->
-            
+
                     </div>
                 </div>
             </div>
             <button class="close-quickview-modal"><i class="fa fa-close"></i></button>
         </div>
-        <!--// Quick View Modal -->  
+        <!--// Quick View Modal -->
 
 
-	</div>
+    </div>
     <!--// Wrapper -->
-    
 
-	<!-- Js Files -->
-	<script src="js/vendor/modernizr-3.6.0.min.js"></script>
-	<script src="js/vendor/jquery-3.3.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
+
+    <!-- Js Files -->
+    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Page specific script -->
+    <script>
+
+        function changeCheck() {
+            var checkBox = document.getElementById("sort_by").value;
+
+            window.location.replace("shop-grid.php?sort_by=" + checkBox);
+
+        };
+        function changeSearch() {
+            var checkBox = document.getElementById("search").value;
+
+            window.location.replace("shop-grid.php?search=" + checkBox + "&sort_by=<?php echo $sort_by;?>");
+
+        };
+        
+    </script>
 </body>
 
 </html>
