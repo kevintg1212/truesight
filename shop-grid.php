@@ -18,7 +18,7 @@ include 'controller/conn.php';
 		<!-- Cart Overlay -->
         <div class="body_overlay"></div>
         <!-- Start Bradcaump area -->
-        <div class="bradcaump_area bg-white">
+        <div class="bradcaump_area bg_image--4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -128,7 +128,7 @@ include 'controller/conn.php';
 									</div>
 								</div>
 								<div class="shop-found-selector">
-									<p>Showing 1–12 of 16 results</p>
+									<!-- <p>Showing 1–12 of 16 results</p> -->
 									<select>
 										<option>Sort by popularity</option>
 										<option>Sort by average rating</option>
@@ -197,6 +197,36 @@ include 'controller/conn.php';
 										</div>
 									</div> -->
 									<!-- End Single Product -->
+								</div>
+
+                                <div class="row single_grid_product tab-pane fade" id="tab2" role="tabpanel">
+									<!-- Start Single Product -->
+                                    <?php
+                                    $result_head = mysqli_query($db2,"select * from `produk`"); 
+									while($d_head = mysqli_fetch_array($result_head)){
+                                        $harga = $d_head['harga'];
+									?>
+									<div class="col-12">
+										<div class="product_list">
+											<div class="product_list__thumb">
+												<a href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>">
+													<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img">
+												</a>
+											</div>
+											<div class="product_list__content">
+												<h4><a href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><?php echo $d_head['nama']; ?></a></h4>
+												<ul class="price">
+                                                    <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
+												</ul>
+												<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born</p>
+												<ul class="cart_action">
+													<li><a href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><img src="img/icons/quick_view.png" alt="icons"></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- End Single Product -->
+                                    <?php } ?>
 								</div>
 							</div>
 							<!-- <ul class="pagination_style">

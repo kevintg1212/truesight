@@ -6,6 +6,8 @@ include 'controller/conn.php';
 
 $id_produk = $_GET['id_produk'];
  
+$varian = mysqli_query($db2,"select * from `varian` where id_produk = '$id_produk'");
+$rowcount=mysqli_num_rows($varian);
 $result_head = mysqli_query($db2,"select * from `produk` where id_produk = '$id_produk'");
 while($d_head = mysqli_fetch_array($result_head)){
 $nama = $d_head['nama'];
@@ -30,7 +32,7 @@ $view = $d_head['view'];
         <!-- End Header Area -->
 
         <!-- Start Bradcaump area bg_image--4 -->
-        <div class="bradcaump_area bg-white">
+        <div class="bradcaump_area bg_image--4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -54,7 +56,7 @@ $view = $d_head['view'];
                 <div class="row align-content-center">
                     <div class="col-lg-6 col-12">
                         <div class="product__details__container">
-                            <div class="tab_container big_img_container" style="justify-content: flex-start !important; ">
+                            <div class="tab_container big_img_container" style="<?php echo $rowcount>2 ? 'justify-content: space-between !important;' : 'justify-content: flex-start !important;' ?> ">
                                 <div class="big_img tab-pane fade show active" id="img1" role="tabpanel">
                                     <img src="img/gambarUtama/<?php echo $gambar ?>" alt="gomes restaurant">
                                 </div>

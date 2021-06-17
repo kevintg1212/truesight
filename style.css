@@ -2351,7 +2351,7 @@ textarea:-ms-input-placeholder {
 .bradcaump_area {
   padding: 100px 0 105px; }
   .bradcaump_area .bradcaump_inner .bradcaump-title {
-    color: #252525;
+    color: #ffffff;
     font-size: 40px;
     font-weight: bold;
     line-height: 1;
@@ -2362,14 +2362,14 @@ textarea:-ms-input-placeholder {
         font-size: 26px;
         margin: 0 0 12px; } }
   .bradcaump_area .bradcaump_inner .bradcaump-content .breadcrumb_item {
-    color: #252525; }
+    color: #ffffff; }
     .bradcaump_area .bradcaump_inner .bradcaump-content .breadcrumb_item:hover {
       color: #777; }
     .bradcaump_area .bradcaump_inner .bradcaump-content .breadcrumb_item.active {
-      color: #252525; }
+      color: #ffffff; }
   .bradcaump_area .bradcaump_inner .bradcaump-content .brd-separetor {
     padding: 0 5px;
-    color: #252525; }
+    color: #ffffff; }
   @media only screen and (max-width: 767px) {
     .bradcaump_area {
       padding: 65px 0 65px; } }
@@ -5801,7 +5801,7 @@ p.form-messege {
 
 .sm_roduct_nav {
   border: 0 none;
-  /* justify-content: flex-start; */
+  /* justify-content: space-between; */
   margin: 0 -8px; }
   .sm_roduct_nav a {
     display: block;

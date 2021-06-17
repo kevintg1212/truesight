@@ -35,7 +35,7 @@ while($d_head = mysqli_fetch_array($result_head)){
         <!-- End Header Area -->
 
         <!-- Start Bradcaump area -->
-        <div class="bradcaump_area bg-white">
+        <div class="bradcaump_area bg_image--4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

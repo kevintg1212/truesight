@@ -134,10 +134,18 @@ if($_SESSION['status_ca'] !="login"){
                         <div class="col-12">
                             <div class="card">
                                 <div style="text-align: right;">
-                                    <button  class="btn btn-success float-sm-right" data-toggle="modal"
-                                        data-target="#modal-add" style="right: 0px; width: 200px; margin-top: 10px; margin-right: 20px;">
-                                        Tambah Banner 2
-                                    </button>
+                                    <?php 
+                                    $banner2 = mysqli_query($db2,"select * from `banner2`");
+                                    if(mysqli_num_rows($banner2) > 2){
+                                        echo "";
+                                    } else { ?>
+                                        <button  class="btn btn-success float-sm-right" data-toggle="modal"
+                                            data-target="#modal-add" style="right: 0px; width: 200px; margin-top: 10px; margin-right: 20px;">
+                                            Tambah Banner
+                                        </button>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
 
                                 <!-- /.card-header -->

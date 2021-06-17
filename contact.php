@@ -25,14 +25,14 @@ $address_google = $d_head['address_google'];
         <!-- End Header Area -->
 
         <!-- Start Bradcaump area -->
-        <div class="bradcaump_area bg-white">
+        <div class="bradcaump_area bg_image--4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump_inner text-center">
                             <h2 class="bradcaump-title">Contact Us</h2>
                             <nav class="bradcaump-content">
-                                <a class="bradcrumb_item" href="index.html">Home</a>
+                                <a class="bradcrumb_item" href="index.php">Home</a>
                                 <span class="brd-separetor">/</span>
                                 <span class="breadcrumb_item active">Contact Us</span>
                             </nav>
