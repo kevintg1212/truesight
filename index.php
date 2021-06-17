@@ -298,15 +298,15 @@ include 'controller/conn.php';
 						<div class="col-lg-3 col-xl-3 col-sm-6 col-12">
 							<div class="product">
 								<div class="thumb">
-									<a href="single-product.html">
+									<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>">
 										<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img" style="width: 270px;">
 									</a>
 									<div class="product_action">
 										<h4>
-											<a href="single-product.html"><?php echo $d_head['nama']; ?> </a>
+											<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?> </a>
 										</h4>
 										<ul class="cart_action">
-											<li>
+											<!-- <li>
 												<a href="cart.html">
 													<img src="img/icons/add_to_cart.png" alt="icons">
 												</a>
@@ -320,20 +320,21 @@ include 'controller/conn.php';
 												<a href="wishlist.html">
 													<img src="img/icons/wishlist_icon.png" alt="icons">
 												</a>
-											</li>
-											<li>
+											</li> -->
+											<!-- <li>
 												<a title="Quick View" class="quickview" href="#">
 													<img src="img/icons/quick_view.png" alt="icons">
 												</a>
-											</li>
+											</li> -->
 										</ul>
 									</div>
 									<div class="content">
 										<h4>
-											<a href="single-product.html"><?php echo $d_head['nama']; ?></a>
+											<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a>
 										</h4>
 										<ul class="price">
-											<li><?php echo $d_head['harga']; ?></li>
+											<?php $harga = $d_head['harga']; ?>
+											<li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
 											<!-- <li class="old-price">$35</li> -->
 										</ul>
 									</div>

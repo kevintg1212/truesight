@@ -164,7 +164,8 @@ include 'controller/conn.php';
 												<div class="content">
 													<h4><a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a></h4>
 													<ul class="price">
-														<li>Rp <?php echo $d_head['harga'];?></li>
+                                                        <?php $harga = $d_head['harga']; ?>
+											            <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
 													</ul>
 												</div>
 											</div>
