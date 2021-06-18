@@ -181,13 +181,13 @@ if ($sort_by == 1) {
                                         <div class="product">
                                             <div class="thumb">
                                                 <a
-                                                    href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>">
+                                                    href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>">
                                                     <img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>"
                                                         alt="product img" style="width: 270px;">
                                                 </a>
                                                 <div class="product_action">
                                                     <h4><a
-                                                            href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a>
+                                                            href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
                                                     </h4>
                                                     <!-- <ul class="cart_action">
 														<li><a href="cart.html"><img src="img/icons/add_to_cart.png" alt="icons"></a></li>
@@ -198,7 +198,7 @@ if ($sort_by == 1) {
                                                 </div>
                                                 <div class="content">
                                                     <h4><a
-                                                            href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a>
+                                                            href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
                                                     </h4>
                                                     <ul class="price">
                                                         <?php $harga = $d_head['harga']; ?>
@@ -247,14 +247,14 @@ if ($sort_by == 1) {
                                         <div class="product_list">
                                             <div class="product_list__thumb">
                                                 <a
-                                                    href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>">
+                                                    href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>">
                                                     <img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>"
                                                         alt="product img">
                                                 </a>
                                             </div>
                                             <div class="product_list__content">
                                                 <h4><a
-                                                        href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><?php echo $d_head['nama']; ?></a>
+                                                        href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
                                                 </h4>
                                                 <ul class="price">
                                                     <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
@@ -263,7 +263,7 @@ if ($sort_by == 1) {
                                                     pleasure and praising pain was born</p>
                                                 <ul class="cart_action">
                                                     <li><a
-                                                            href="single-product.php?id_produk=<?php echo $d_head['id_produk']; ?>"><img
+                                                            href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><img
                                                                 src="img/icons/quick_view.png" alt="icons"></a></li>
                                                 </ul>
                                             </div>

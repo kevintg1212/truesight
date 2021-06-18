@@ -278,15 +278,6 @@ include 'controller/conn.php';
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="product_tab_name justify-content-center nav" role="tablist">
-							<a class="active" href="#item1" data-toggle="tab"> all</a>
-							<!-- <a href="#item2" data-toggle="tab"> men</a>
-							<a href="#item3" data-toggle="tab"> women</a> -->
-						</div>
-					</div>
-				</div>
 				<div class="tab_content">
 					<!-- Start Single Content -->
 					<div class="row single_content tab-pane fade show active" id="item1" role="tabpanel">
@@ -305,28 +296,6 @@ include 'controller/conn.php';
 										<h4>
 											<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?> </a>
 										</h4>
-										<ul class="cart_action">
-											<!-- <li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li> -->
-											<!-- <li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li> -->
-										</ul>
 									</div>
 									<div class="content">
 										<h4>
@@ -343,53 +312,6 @@ include 'controller/conn.php';
 						</div>
 						<!-- End Single Product -->
 						<?php } ?>
-						<!-- Start Single Product -->
-						<div class="col-lg-4 col-xl-3 col-sm-6 col-12">
-							<div class="product">
-								<div class="thumb">
-									<a href="single-product.html">
-										<img src="img/product/product-2.jpg" alt="product img">
-									</a>
-									<div class="product_action">
-										<h4>
-											<a href="single-product.html">Ray Bune</a>
-										</h4>
-										<ul class="cart_action">
-											<li>
-												<a href="cart.html">
-													<img src="img/icons/add_to_cart.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<img src="img/icons/compare_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a href="wishlist.html">
-													<img src="img/icons/wishlist_icon.png" alt="icons">
-												</a>
-											</li>
-											<li>
-												<a title="Quick View" class="quickview" href="#">
-													<img src="img/icons/quick_view.png" alt="icons">
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="content">
-										<h4>
-											<a href="single-product.html">Rinosin Glasses</a>
-										</h4>
-										<ul class="price">
-											<li>$35</li>
-											<li class="old-price">$10</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Product -->
 					</div>
 					<!-- End Single Content -->
 					<!-- Start Single Content -->
@@ -1613,7 +1535,7 @@ include 'controller/conn.php';
 		<!-- Start CounteUp Area bg_image--2 -->
 		<div class="counterup_area section-pt-xl mb-5">
 			<div class="counterup_wrapper">
-				<div class="container bg-dark rounded shadow-sm">
+				<div class="container rounded shadow-sm">
 					<?php
 					$i = 0;
 					$result_head = mysqli_query($db2,"select * from `bannerPromo` LIMIT 1");

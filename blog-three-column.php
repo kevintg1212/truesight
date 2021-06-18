@@ -46,7 +46,7 @@ include 'controller/conn.php';
                     <div class="col-xl-4 col-lg-4 col-sm-6 col-12 mb--50">
                         <div class="blog">
                             <div class="blog__thumb">
-                                <a href="blog-details.php?id_artikel=<?php echo $d_head['id_article'];?>">
+                                <a href="controller/conn_add_view.php?id_article=<?php echo $d_head['id_article'];?>&view=<?php echo $d_head['view'];?>">
                                     <img src="img/thumbnail/<?php echo $d_head['thumbnail']; ?>" alt="blog img">
                                 </a>
                             </div>
@@ -55,9 +55,9 @@ include 'controller/conn.php';
                                     <li><?php if ($d_head['view'] == null) { echo '0'; } else echo $d_head['view']; ?> Views</li>
                                     <li><?php echo $d_head['tanggal_posting']; ?></li>
                                 </ul>
-                                <h3><a href="blog-details.php?id_artikel=<?php echo $d_head['id_article'];?>"><?php echo $d_head['judul']; ?></a></h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by</p>
-                                <a class="blog_btn" href="blog-details.php?id_artikel=<?php echo $d_head['id_article'];?>">Read More</a>
+                                <h3><a href="controller/conn_add_view.php?id_article=<?php echo $d_head['id_article'];?>&view=<?php echo $d_head['view'];?>"><?php echo $d_head['judul']; ?></a></h3>
+                                <?php echo mb_strimwidth($d_head['deskripsi'], 0, 1000, "..."); ?>
+                                <a class="blog_btn" href="controller/conn_add_view.php?id_article=<?php echo $d_head['id_article'];?>&view=<?php echo $d_head['view'];?>">Read More</a>
                             </div>
                         </div>
                     </div>

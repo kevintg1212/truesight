@@ -3705,7 +3705,7 @@ textarea:-ms-input-placeholder {
   background-repeat: no-repeat;
   display: flex;
   padding: 50px 0;
-  background-image: url(img/icons/cdown_layer_img.png);
+  /* background-image: url(img/icons/cdown_layer_img.png); */
   margin-right: -16px; }
   @media only screen and (min-width: 1200px) and (max-width: 1599px) {
     .counterup_area .counter_content {
@@ -3734,9 +3734,10 @@ textarea:-ms-input-placeholder {
       .counterup_area .counter_content .thumb {
         display: none; } }
   .counterup_area .counter_content .content {
+    right: 150px;
     margin-left: 85px;
-    position: relative;
-    margin-top: -17px;
+    position: absolute;
+    /* margin-top: -17px; */
     text-align: center; }
     @media only screen and (min-width: 1200px) and (max-width: 1599px) {
       .counterup_area .counter_content .content {
@@ -3755,28 +3756,28 @@ textarea:-ms-input-placeholder {
         margin-left: 0;
         margin-bottom: 27px; } }
     .counterup_area .counter_content .content h2 {
-      color: #fff;
+      color: #252525;
       font-size: 30px;
       font-weight: 400;
       margin: 0 0 5px; }
       @media only screen and (min-width: 1200px) and (max-width: 1599px) {
         .counterup_area .counter_content .content h2 {
-          color: #fff; } }
+          color: #252525; } }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .counterup_area .counter_content .content h2 {
-          color: #fff; } }
+          color: #252525; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .counterup_area .counter_content .content h2 {
-          color: #fff;
+          color: #252525;
           font-size: 22px; } }
       @media only screen and (max-width: 767px) {
         .counterup_area .counter_content .content h2 {
-          color: #fff; } }
+          color: #252525; } }
       @media only screen and (max-width: 575px) {
         .counterup_area .counter_content .content h2 {
           font-size: 25px; } }
     .counterup_area .counter_content .content h3 {
-      color: #fff;
+      color: #252525;
       font-size: 46px;
       text-transform: uppercase;
       font-weight: 600;
@@ -3787,21 +3788,21 @@ textarea:-ms-input-placeholder {
           font-size: 37px;
           line-height: 50px;
           margin: 0 0 9px;
-          color: #fff; } }
+          color: #252525; } }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .counterup_area .counter_content .content h3 {
-          color: #fff;
+          color: #252525;
           font-size: 38px;
           line-height: 56px;
           margin: 0 0 4px; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .counterup_area .counter_content .content h3 {
-          color: #fff;
+          color: #252525;
           font-size: 28px;
           line-height: 46px; } }
       @media only screen and (max-width: 767px) {
         .counterup_area .counter_content .content h3 {
-          color: #fff;
+          color: #252525;
           font-size: 28px;
           line-height: 43px; } }
       @media only screen and (max-width: 575px) {
@@ -3810,7 +3811,7 @@ textarea:-ms-input-placeholder {
           line-height: 37px; } }
     .counterup_area .counter_content .content a {
       border-bottom: 2px solid #6f6e7a;
-      color: #fff;
+      color: #252525;
       display: inline-block;
       font-size: 22px;
       font-weight: 500;
@@ -3819,16 +3820,16 @@ textarea:-ms-input-placeholder {
       font-family: "Oswald", sans-serif; }
       @media only screen and (min-width: 1200px) and (max-width: 1599px) {
         .counterup_area .counter_content .content a {
-          color: #fff; } }
+          color: #252525; } }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .counterup_area .counter_content .content a {
-          color: #fff; } }
+          color: #252525; } }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .counterup_area .counter_content .content a {
-          color: #fff; } }
+          color: #252525; } }
       @media only screen and (max-width: 767px) {
         .counterup_area .counter_content .content a {
-          color: #fff; } }
+          color: #252525; } }
       .counterup_area .counter_content .content a:hover {
         opacity: 0.7; }
 

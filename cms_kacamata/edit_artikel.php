@@ -267,7 +267,7 @@ while($d_head = mysqli_fetch_array($result_head)){
                                                     <input class="form-control" type="file" id="lampiran" name="lampiran">
                                                     <label for="lampiran"><img id="blah"
                                                         style="width: 200px; border: 1px solid black; margin-top: 30px; padding: 10px;"
-                                                        src="img/thumbnail/<?php echo $thumbnail; ?>" alt="your image" /></label>
+                                                        src="../img/thumbnail/<?php echo $thumbnail; ?>" alt="your image" /></label>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -305,6 +305,7 @@ while($d_head = mysqli_fetch_array($result_head)){
                                         <input type="hidden" id="inputTgl" name="tglPosting" class="form-control" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
                                         <input type="hidden" id="idKategori" name="idKategori" class="form-control" value="" readonly="readonly">
                                         <input type="hidden" id="id_article" name="id_article" class="form-control" value="<?php echo $id_artikel; ?>" readonly="readonly">
+                                        <input type="hidden" id="gambarLama" name="gambarLama" class="form-control" value="<?php echo $thumbnail; ?>" readonly="readonly">
                                         <button type="submit" class="btn btn-primary float-right">Simpan</button>
                                     </form>        
                                 </div>

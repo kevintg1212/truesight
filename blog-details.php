@@ -42,7 +42,7 @@ while($d_head = mysqli_fetch_array($result_head)){
                         <div class="bradcaump_inner text-center">
                             <h2 class="bradcaump-title">Blog Details</h2>
                             <nav class="bradcaump-content">
-                                <a class="breadcrumb_item" href="index.html">Home</a>
+                                <a class="breadcrumb_item" href="index.php">Home</a>
                                 <span class="brd-separetor">/</span>
                                 <span class="breadcrumb_item active">Blog Details</span>
                             </nav>
