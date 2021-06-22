@@ -259,8 +259,7 @@ if ($sort_by == 1) {
                                                 <ul class="price">
                                                     <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
                                                 </ul>
-                                                <p>But I must explain to you how all this mistaken idea of denouncing
-                                                    pleasure and praising pain was born</p>
+                                                <p><?php echo $d_head['deskripsi_singkat']; ?> </p>
                                                 <ul class="cart_action">
                                                     <li><a
                                                             href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><img

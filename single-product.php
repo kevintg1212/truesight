@@ -39,7 +39,7 @@ $view = $d_head['view'];
                         <div class="bradcaump_inner text-center">
                             <h2 class="bradcaump-title">Single Product</h2>
                             <nav class="bradcaump-content">
-                                <a class="breadcrumb_item" href="index.html">Home</a>
+                                <a class="breadcrumb_item" href="index.php">Home</a>
                                 <span class="brd-separetor">/</span>
                                 <span class="breadcrumb_item active">Single Product</span>
                             </nav>
@@ -135,10 +135,7 @@ $view = $d_head['view'];
                             </ul>
 
                             <div class="pro_dtl">
-                                <p>Products available in store.
-                                    <br>Also in store:
-                                    <span class="heading-color">1154</span> product result.</p>
-                                <p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p>Products available in store.</p>
                             </div>
                             
                             <!-- <div class="product_cart_action">

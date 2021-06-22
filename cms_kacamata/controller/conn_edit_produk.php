@@ -33,13 +33,14 @@ if ($uploadOk == 0) {
   $name_image1 = mysqli_real_escape_string($db2,$_POST['bannerLama']);
 
 }
-    $stmt1 = $db2->prepare("UPDATE `produk` set nama =?,  deskripsi =?, discount =?, harga =? ,gambar =? where id_produk = ?");
-    $stmt1->bind_param("ssssss", $nama, $deskripsi, $discount, $harga, $gambar, $id_produk );
+    $stmt1 = $db2->prepare("UPDATE `produk` set nama =?,  deskripsi =?, discount =?, harga =? ,gambar =? ,deskripsi_singkat =? where id_produk = ?");
+    $stmt1->bind_param("sssssss", $nama, $deskripsi, $discount, $harga, $gambar, $id_produk, $deskripsi_singkat );
     
     $nama = mysqli_real_escape_string($db2,$_POST['namaProduk']);
     $deskripsi = mysqli_real_escape_string($db2,$_POST['deskripsi']);
     $discount = mysqli_real_escape_string($db2,$_POST['discount']);
     $harga = mysqli_real_escape_string($db2,$_POST['harga']);
+    $deskripsi_singkat = mysqli_real_escape_string($db2,$_POST['deskripsi_singkat']);
     $gambar = $name_image1;
     $id_produk = mysqli_real_escape_string($db2,$_POST['idProduk']);
 
