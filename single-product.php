@@ -17,6 +17,13 @@ $harga = $d_head['harga'];
 $gambar = $d_head['gambar'];
 $tags = $d_head['tags'];
 $view = $d_head['view'];
+
+$no = 1;
+$contact = mysqli_query($db2,"select * from `contact_us`");
+while($d_head = mysqli_fetch_array($contact)){
+    $phone = $d_head['phone'];
+    $x = explode(" ", $phone);
+    $phone_number = str_replace("-", "", $x[1]); }
 }
 ?>
 
@@ -138,41 +145,27 @@ $view = $d_head['view'];
                                 <p>Products available in store.</p>
                             </div>
                             
-                            <!-- <div class="product_cart_action">
+                            <div class="product_cart_action">
                                 <div class="add_to_cart">
                                     <ul class="cart_list">
                                         <li class="shopping_basket">
-                                            <a href="cart.html">
-                                                <i class="fa fa-shopping-basket"></i> add to cart</a>
+                                            <a href="https://api.whatsapp.com/send?phone=<?php echo $phone_number ?>">
+                                                <i class="fab fa-whatsapp"></i> Buy now</a>
                                         </li>
-                                        <li>
-                                            <a href="wishlist.html">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                        </li>
-                                        
                                     </ul>
                                 </div>
-                                <div class="cart_qun_inner">
-                                    <div class="pro-quantity"><div class="pro-qty"><input type="text" value="2"></div></div>
-                                </div>
-                            </div> -->
+                            </div>
                             <div class="product_share">
                                 <span>Share:</span>
                                 <ul class="social_share">
                                     <li>
                                         <a class="facebook" href="#">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="twitter" href="#">
-                                            <i class="fa fa-twitter"></i>
+                                            <i class="fab fa-facebook"></i>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="instagram" href="#">
-                                            <i class="fa fa-instagram"></i>
+                                            <i class="fab fa-instagram"></i>
                                         </a>
                                     </li>
                                 </ul>

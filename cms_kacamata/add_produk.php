@@ -275,6 +275,12 @@ if($_SESSION['status_ca'] !="login"){
                                                     <textarea class="konten" id="inputDeskripsi" name="deskripsi" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required autocomplete="off"></textarea>
                                                 </div>
                                             </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="inputTags">Tags</label>
+                                                    <input type="text" id="inputTags" name="tags" class="form-control" required>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputHarga" class="col-sm-1 col-form-label">Harga</label>

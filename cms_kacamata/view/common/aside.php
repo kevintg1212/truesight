@@ -93,14 +93,14 @@ if (isset($_GET['periode']) && !isset($_GET['outlet_x'])) {
                             <a href="banner_1.php"
                                 class="nav-link <?php if ($first_part=="banner_1.php") {echo "active"; } else  {echo "noactive";}?>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Banner 1</p>
+                                <p>Banner Utama</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="banner_2.php"
                                 class="nav-link <?php if ($first_part=="banner_2.php") {echo "active"; } else  {echo "noactive";}?>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Banner 2</p>
+                                <p>Banner Side</p>
                             </a>
                         </li>
                         <li class="nav-item">

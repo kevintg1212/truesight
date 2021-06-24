@@ -71,7 +71,7 @@ if($_SESSION['status_ca'] !="login"){
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">Edit - Banner 1</h4>
+                    <h4 class="modal-title" id="exampleModalLabel">Edit - Banner Utama</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -131,7 +131,7 @@ if($_SESSION['status_ca'] !="login"){
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">Add - Banner 1</h4>
+                    <h4 class="modal-title" id="exampleModalLabel">Add - Banner Utama</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -220,7 +220,7 @@ if($_SESSION['status_ca'] !="login"){
                                 <div style="text-align: right;">
                                     <button  class="btn btn-success float-sm-right" data-toggle="modal"
                                         data-target="#modal-add" style="right: 0px; width: 200px; margin-top: 10px; margin-right: 20px;">
-                                        Tambah Banner 1
+                                        Tambah Banner Utama
                                     </button>
                                 </div>
 

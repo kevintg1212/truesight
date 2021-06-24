@@ -212,18 +212,22 @@ while($d_head = mysqli_fetch_array($result_head)){
                         <div class="col-12">
                             <div class="card">
                                 <div style="text-align: right;">
-                                    <?php 
+                                    <!-- <?php 
                                     $varian_row = mysqli_query($db2,"select * from `varian` where id_produk = '$id_produk'");
                                     if(mysqli_num_rows($varian_row) > 2){
                                         echo "";
                                     } else { ?>
                                         <button  class="btn btn-success float-sm-right" data-toggle="modal"
                                             data-target="#modal-add" style="right: 0px; width: 200px; margin-top: 10px; margin-right: 20px;">
-                                            Tambah Banner Promo
+                                            Tambah Varian
                                         </button>
                                     <?php
                                     }
-                                    ?>
+                                    ?> -->
+                                    <button  class="btn btn-success float-sm-right" data-toggle="modal"
+                                        data-target="#modal-add" style="right: 0px; width: 200px; margin-top: 10px; margin-right: 20px;">
+                                        Tambah Varian
+                                    </button>
                                 </div>
 
                                 <!-- /.card-header -->

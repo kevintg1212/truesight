@@ -7,29 +7,7 @@ include 'controller/conn.php';
 
 <html class="no-js" lang="zxx">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Truesight - Look the right way.</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="img/icon.png">
-
-	<!-- Plugins -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/plugins.css">
-
-	<!-- Style Css -->
-	<link rel="stylesheet" href="style.css">
-
-	<!-- Custom Styles -->
-	<link rel="stylesheet" href="css/custom.css">
-		  <!-- Font Awesome -->
-		  <link rel="stylesheet" href="css/fontawesome-free/css/all.min.css">
-</head>
+<?php include "./view/head.html" ?>
 
 <body>
 
@@ -273,7 +251,7 @@ include 'controller/conn.php';
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section_title text-center">
-							<h2>NEW ARRIVLE SUNGLASSES</h2>
+							<h2>NEW ARRIVAL SUNGLASSES</h2>
 							<p>Eye chasmish are very important for thos whos have some difficult in their eye to see every hing clearly and perfectly</p>
 						</div>
 					</div>

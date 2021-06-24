@@ -30,8 +30,8 @@ date_default_timezone_set("Asia/Bangkok");
 		}
 	  }
 
-    $stmt1 = $db2->prepare("INSERT INTO `produk` (id_produk, nama, deskripsi, discount, harga, gambar, created_at, deskripsi_singkat) VALUES(?, ?, ?, ?, ?, ? ,? ,?)");
-    $stmt1->bind_param("ssssssss", $id_produk, $nama, $deskripsi, $discount, $harga, $name_image1, $createdDate, $deskripsi_singkat);
+    $stmt1 = $db2->prepare("INSERT INTO `produk` (id_produk, nama, deskripsi, discount, harga, gambar, created_at, deskripsi_singkat, tags) VALUES(?, ?, ?, ?, ?, ? ,? ,? ,?)");
+    $stmt1->bind_param("sssssssss", $id_produk, $nama, $deskripsi, $discount, $harga, $name_image1, $createdDate, $deskripsi_singkat, $tags);
     
     
     $id_produk = mysqli_real_escape_string($db2,$_POST['idProduk']);
@@ -39,6 +39,7 @@ date_default_timezone_set("Asia/Bangkok");
     $deskripsi = mysqli_real_escape_string($db2,$_POST['deskripsi']);
     $discount = mysqli_real_escape_string($db2,$_POST['discount']);
     $harga = mysqli_real_escape_string($db2,$_POST['harga']);
+    $tags = mysqli_real_escape_string($db2,$_POST['tags']);
     $deskripsi_singkat = mysqli_real_escape_string($db2,$_POST['deskripsi_singkat']);
     $createdDate = date("Y-m-d h:i:sa");
 
@@ -57,13 +58,14 @@ date_default_timezone_set("Asia/Bangkok");
     echo '<br> deskripsi: '.$deskripsi;
     echo '<br> discount: '.$discount;
     echo '<br> harga: '.$harga;
+    echo '<br> tags: '.$tags;
     echo '<br> name_image1: '.$name_image1;
 
     $stmt1->execute();
     printf("Error: %s.\n", $stmt1->error);
     $stmt1->close();
     
-    header("location:../produk.php");
+    // header("location:../produk.php");
 
 
 
