@@ -26,6 +26,8 @@ while($d_head = mysqli_fetch_array($contact)){
     $phone_number = str_replace("-", "", $x[1]); }
 }
 
+$tagsX = explode(";", $tags);
+
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 ?>
@@ -237,7 +239,13 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                         </div> -->
                         <div class="single_review_content tab-pane fade" id="product" role="tabpanel">
                             <div class="content">
-                                <p> <?php echo $tags; ?></p>
+                                <p>
+                                    <?php
+                                    $i = 0;
+                                    foreach($tagsX as $row) {
+                                        echo $row." ";
+                                    }; ?>
+                                </p>
                             </div>
                         </div>
                     </div>

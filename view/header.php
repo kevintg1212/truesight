@@ -20,8 +20,10 @@
 						$contact = mysqli_query($db2,"select * from `contact_us`");
 						while($d_head = mysqli_fetch_array($contact)){
 							$phone = $d_head['phone'];
+							$phone = str_replace("_", "", $phone);
 							$x = explode(" ", $phone);
 							$phone_number = str_replace("-", "", $x[1]);
+							$phone_number = str_replace("_", "", $phone_number);
 						?>
 						<div class="login_account">
 							<div class="mini_cat_box">
