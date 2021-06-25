@@ -33,8 +33,8 @@ if ($uploadOk == 0) {
   $name_image1 = mysqli_real_escape_string($db2,$_POST['bannerLama']);
 
 }
-    $stmt1 = $db2->prepare("UPDATE `produk` set nama =?,  deskripsi =?, discount =?, harga =? ,gambar =? ,deskripsi_singkat =? where id_produk = ?");
-    $stmt1->bind_param("sssssss", $nama, $deskripsi, $discount, $harga, $gambar, $id_produk, $deskripsi_singkat );
+    $stmt1 = $db2->prepare("UPDATE `produk` set nama =?,  deskripsi =?, discount =?, harga =? ,gambar =? ,deskripsi_singkat =? , tags= ? where id_produk = ?");
+    $stmt1->bind_param("ssssssss", $nama, $deskripsi, $discount, $harga, $gambar, $deskripsi_singkat, $tags, $id_produk);
     
     $nama = mysqli_real_escape_string($db2,$_POST['namaProduk']);
     $deskripsi = mysqli_real_escape_string($db2,$_POST['deskripsi']);
@@ -43,6 +43,9 @@ if ($uploadOk == 0) {
     $deskripsi_singkat = mysqli_real_escape_string($db2,$_POST['deskripsi_singkat']);
     $gambar = $name_image1;
     $id_produk = mysqli_real_escape_string($db2,$_POST['idProduk']);
+    $tags = mysqli_real_escape_string($db2,$_POST['tags']);
+
+    $tagsX = str_replace( ';', '/;', $tags );
 
     $b = str_replace( ',', '', $harga );
 
@@ -55,9 +58,12 @@ if ($uploadOk == 0) {
     echo ' <br> deskripsi: '.$deskripsi;
     echo ' <br> discount: '.$discount;
     echo ' <br> harga: '.$harga;
+    echo ' <br> tags: '.$tags;
+    echo ' <br> tagsX: '.$tagsX;
 
 
     $stmt1->execute();
+    printf("Error: %s.\n", $stmt1->error);
     $stmt1->close();
     
     header("location:../produk.php");

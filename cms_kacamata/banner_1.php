@@ -88,8 +88,8 @@ if($_SESSION['status_ca'] !="login"){
 
                         <div class="form-group">
                             <label for="inputLampiran">Gambar banner</label>
-                            <input class="form-control" type="file" id="lampiran" name="lampiran">
-                            <label for="lampiran"><img id="blah"
+                            <input class="form-control" type="file" id="lampiran1" name="lampiran1">
+                            <label for="lampiran"><img id="blah1"
                                 style="width: 200px; border: 1px solid black; margin-top: 30px; padding: 10px;"
                                 src="../img/banner_1/" alt="your image" /></label>
                         </div>
@@ -357,6 +357,22 @@ if($_SESSION['status_ca'] !="login"){
         readURL(this);
         });
 
+        function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            $('#blah1').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+        }
+
+        $("#lampiran1").change(function () {
+        readURL1(this);
+        });
+
             //Datemask dd/mm/yyyy
             $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
             //Datemask2 mm/dd/yyyy
@@ -418,7 +434,7 @@ if($_SESSION['status_ca'] !="login"){
             document.getElementById("text31").value = recipient_i;
             document.getElementById("id_banner1").value = recipient_j;
 
-            document.getElementById("blah").src = "../img/banner_1/"+recipient_e;
+            document.getElementById("blah1").src = "../img/banner_1/"+recipient_e;
             
         })
 

@@ -65,7 +65,7 @@ date_default_timezone_set("Asia/Bangkok");
     printf("Error: %s.\n", $stmt1->error);
     $stmt1->close();
     
-    // header("location:../produk.php");
+    header("location:../produk.php");
 
 
 

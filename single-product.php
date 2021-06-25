@@ -25,6 +25,9 @@ while($d_head = mysqli_fetch_array($contact)){
     $x = explode(" ", $phone);
     $phone_number = str_replace("-", "", $x[1]); }
 }
+
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 ?>
 
 <?php include "./view/head.html" ?>
@@ -159,12 +162,12 @@ while($d_head = mysqli_fetch_array($contact)){
                                 <span>Share:</span>
                                 <ul class="social_share">
                                     <li>
-                                        <a class="facebook" href="#">
-                                            <i class="fab fa-facebook"></i>
-                                        </a>
+                                        <?php
+                                        echo '<iframe src="https://www.facebook.com/plugins/share_button.php?href='.$actual_link.'&layout=button&size=large&width=91&height=28&appId" width="91" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>';
+                                            ?>
                                     </li>
                                     <li>
-                                        <a class="instagram" href="#">
+                                        <a class="instagram" href="https://www.instagram.com/truesight_eyewear/">
                                             <i class="fab fa-instagram"></i>
                                         </a>
                                     </li>
@@ -258,6 +261,15 @@ while($d_head = mysqli_fetch_array($contact)){
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        $('.fbsharelink').click( function() 
+        {
+            var shareurl = $(this).data('shareurl');
+            window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(shareurl)+'&t='+document.title, '', 
+            'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+            return false;
+        });
+    </script>
 </body>
 
 </html>

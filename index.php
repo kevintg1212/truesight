@@ -95,7 +95,7 @@ include 'controller/conn.php';
 			while($d_head = mysqli_fetch_array($result_head)){
 			?>
 			<div class="slide slide_fixed_height d-flex align-items-center poss_relative animation__style01" 
-			style="background-image: url(img/banner_1/<?php echo $d_head['gambar']; ?>);
+			style="background-image: url('img/banner_1/<?php echo $d_head['gambar']; ?>');
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center center;">

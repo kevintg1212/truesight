@@ -16,6 +16,7 @@ while($d_head = mysqli_fetch_array($result_head)){
    $harga= $d_head['harga'];
    $gambar= $d_head['gambar'];
    $deskripsi_singkat= $d_head['deskripsi_singkat'];
+   $tags= $d_head['tags'];
 }
 ?>
 <html lang="en">
@@ -128,6 +129,14 @@ while($d_head = mysqli_fetch_array($result_head)){
                                                     <label for="inputDeskripsi">Deskripsi</label>
                                                     <textarea class="konten" id="inputDeskripsi" name="deskripsi" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required autocomplete="off">
                                                     <?php echo $deskripsi; ?>
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="inputTags">tags</label>
+                                                    <textarea class="konten" id="inputTags" name="tags" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required autocomplete="off">
+                                                    <?php echo $tags; ?>
                                                     </textarea>
                                                 </div>
                                             </div>
