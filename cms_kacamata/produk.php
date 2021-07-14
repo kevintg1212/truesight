@@ -170,6 +170,7 @@ if($_SESSION['status_ca'] !="login"){
                                                 <th>Discount</th>
                                                 <th>Deskripsi</th>
                                                 <th>Gambar</th>
+                                                <th>View</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -187,7 +188,9 @@ if($_SESSION['status_ca'] !="login"){
                                                 <td><?php echo $d_head['deskripsi']; ?></td>
                                                 <td> <img class="shadow"
                                                     style="width: 200px; border: 1px solid black;"
-                                                    src="../img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="your image" /> </td>
+                                                    src="../img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="your image" /> 
+                                                </td>
+                                                <td><b> <?php echo $d_head['view']; ?> </b> </td>
                                                 <td>
                                                     <a class="btn btn-info" id="btnAddCol" href="edit_produk.php?id_produk=<?php echo $d_head['id_produk']; ?>"
                                                         style="width: 150px; margin-top: 10px; margin-right: 20px;">

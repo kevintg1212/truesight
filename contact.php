@@ -89,7 +89,7 @@ $address_google = $d_head['address_google'];
                                         <i class="ti-mobile"></i>
                                     </div>
                                     <div class="contact-info-text">
-                                        <p><span>Phone:</span> (+62) <?php echo $phone; ?> </p>
+                                        <p><span>Phone:</span> <?php echo $phone; ?> </p>
                                     </div>
                                 </div>
 

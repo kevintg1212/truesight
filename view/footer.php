@@ -26,7 +26,7 @@
 								<h5 class="ft_widget_title">Hubungi Kami</h5>
 								<div class="textwidget">
 									<p> <?php echo $d_head['address']?> </p>
-									<p> <?php echo $d_head['phone']?> </p>
+									<a href="https://api.whatsapp.com/send?phone=<?php echo $d_head['phone'] ?>"> <p> <?php echo $d_head['phone']?> </p> </a>
 									<p> <?php echo $d_head['email']?> </p>
 								</div>
 							</div>

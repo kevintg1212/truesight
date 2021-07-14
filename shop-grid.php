@@ -189,12 +189,9 @@ if ($sort_by == 1) {
                                                     <h4><a
                                                             href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
                                                     </h4>
-                                                    <!-- <ul class="cart_action">
-														<li><a href="cart.html"><img src="img/icons/add_to_cart.png" alt="icons"></a></li>
-														<li><a href="#"><img src="img/icons/compare_icon.png" alt="icons"></a></li>
-														<li><a href="wishlist.html"><img src="img/icons/wishlist_icon.png" alt="icons"></a></li>
-														<li><a title="Quick View" class="quickview" href="#"><img src="img/icons/quick_view.png" alt="icons"></a></li>
-													</ul> -->
+                                                    <ul class="cart_action text-white">
+														<li> <p> <?php echo $d_head['view'] ?> views </p> </li>
+													</ul>
                                                 </div>
                                                 <div class="content">
                                                     <h4><a
@@ -256,6 +253,7 @@ if ($sort_by == 1) {
                                                 <h4><a
                                                         href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
                                                 </h4>
+                                                <ul class="price"> <?php echo $d_head['view'] ?> views </ul>
                                                 <ul class="price">
                                                     <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
                                                 </ul>
