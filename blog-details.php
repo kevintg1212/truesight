@@ -14,7 +14,10 @@ while($d_head = mysqli_fetch_array($result_head)){
    $tags = $d_head['tags'];
    $tanggal_posting = $d_head['tanggal_posting'];
    $view = $d_head['view'];
-}
+};
+
+$tagsX = explode(", ","$tags");
+
 ?>
 <!-- Start section HEAD -->
 <?php 
@@ -172,23 +175,27 @@ while($d_head = mysqli_fetch_array($result_head)){
                             <!-- End Single Wedget -->
 
                             <!-- Start Single Wedget -->
-                            <div class="sidebar_widget widget_banner mb--60">
+                            <!-- <div class="sidebar_widget widget_banner mb--60">
                                 <div class="sidebar_banner">
                                     <a href="#">
                                         <img src="img/banner/sidebar-banner.png" alt="sidebar banner">
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- End Single Wedget -->
 
                             <!-- Start Single Wedget -->
                             <div class="sidebar_widget widget_tag">
                                 <h2 class="sidebar_title">Tags</h2>
-                                <ul class="sidebar_tag">
-                                    <li>
-                                        <a href="#"><?php echo $tags; ?></a>
-                                    </li>
-                                </ul>
+                                <?php 
+                                for($i=0; $i < count($tagsX) ; $i++) { ?>
+                                    <ul class="sidebar_tag">
+                                        <li>
+                                            <a href="#"> <?php echo $tagsX[$i] ?> </a>
+                                        </li>
+                                    </ul>
+                                <?php }; ?>
+                                
                             </div>
                             <!-- End Single Wedget -->
 
