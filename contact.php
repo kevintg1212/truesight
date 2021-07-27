@@ -71,7 +71,7 @@ $address_google = $d_head['address_google'];
                                     </div>
                                     <div class="contact-info-text">
                                         <p><span>Address:</span>  <?php echo $address; ?> </p>
-                                        <p><span>Click me:</span>  <a href="<?php echo $address_google; ?>"> <?php echo $address_google; ?> </a> </p>
+                                        <p><span>Click me:</span>  <a href="<?php echo $address_google; ?>"> Go To Map. </a> </p>
                                     </div>
                                 </div>
 
