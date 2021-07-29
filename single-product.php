@@ -17,6 +17,8 @@ $harga = $d_head['harga'];
 $gambar = $d_head['gambar'];
 $tags = $d_head['tags'];
 $view = $d_head['view'];
+$deskripsi_singkat = $d_head['deskripsi_singkat'];
+	
 
 $no = 1;
 $contact = mysqli_query($db2,"select * from `contact_us`");
@@ -25,9 +27,9 @@ while($d_head = mysqli_fetch_array($contact)){
     $x = explode(" ", $phone);
     $phone_number = str_replace("-", "", $x[1]); }
 }
-
+	
 $tagsX = explode(";", $tags);
-
+	
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 ?>
@@ -147,7 +149,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                             </ul>
 
                             <div class="pro_dtl">
-                                <p>Products available in store.</p>
+                                <p><?php echo $deskripsi_singkat; ?></p>
                             </div>
                             
                             <div class="product_cart_action">
@@ -163,10 +165,10 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                             <div class="product_share">
                                 <span>Share:</span>
                                 <ul class="social_share">
-                                    <li>
+									<li>
                                         <?php
                                         echo '<iframe src="https://www.facebook.com/plugins/share_button.php?href='.$actual_link.'&layout=button&size=large&width=91&height=28&appId" width="91" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>';
-                                        ?>
+                                         ?>
                                     </li>
                                     <li>
                                         <a class="instagram" href="https://www.instagram.com/truesight_eyewear/">
@@ -269,15 +271,6 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        $('.fbsharelink').click( function() 
-        {
-            var shareurl = $(this).data('shareurl');
-            window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(shareurl)+'&t='+document.title, '', 
-            'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-            return false;
-        });
-    </script>
 </body>
 
 </html>
