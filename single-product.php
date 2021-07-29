@@ -156,7 +156,7 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                                 <div class="add_to_cart">
                                     <ul class="cart_list">
                                         <li class="shopping_basket">
-                                            <a href="https://api.whatsapp.com/send?phone=<?php echo $phone_number ?>">
+                                            <a target="_blank" href="https://api.whatsapp.com/send?phone=62<?php echo $phone_number ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20<?php echo $nama; ?>%20direspond%20cepat%20yah.">
                                                 <i class="fab fa-whatsapp"></i> Buy now</a>
                                         </li>
                                     </ul>

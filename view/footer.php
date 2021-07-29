@@ -26,7 +26,7 @@
 								<h5 class="ft_widget_title">Hubungi Kami</h5>
 								<div class="textwidget">
 									<p> <?php echo $d_head['address']?> </p>
-									<a href="https://api.whatsapp.com/send?phone=<?php echo $d_head['phone'] ?>"> <p> <?php echo $d_head['phone']?> </p> </a>
+									<a target="_blank" href="https://api.whatsapp.com/send?phone=62<?php echo $d_head['phone'] ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20kerennya%20direspond%20cepat%20yah."> <p> <?php echo $d_head['phone']?> </p> </a>
 									<p> <?php echo $d_head['email']?> </p>
 								</div>
 							</div>

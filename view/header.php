@@ -27,7 +27,7 @@
 						?>
 						<div class="login_account">
 							<div class="mini_cat_box">
-								<a class="shop_cart_icon" href="https://api.whatsapp.com/send?phone=<?php echo $phone_number ?>">
+								<a target="_blank" class="shop_cart_icon" href="https://api.whatsapp.com/send?phone=62<?php echo $phone_number ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20kerennya%20direspond%20cepat%20yah.">
 								<i class="fab fa-whatsapp"></i>
 									<span class="cart_text"> <?php echo $phone ?> </span>
 								</a>
@@ -52,7 +52,7 @@
 											</ul> -->
 								</li>
 								<li class="drop">
-									<a href="shop-grid.php">Shop</a>
+									<a href="shop-grid.php">Produk</a>
 									<!-- <ul class="dropdown">
 												<li><a href="shop-grid.html">Shop Grid</a></li>
 												<li><a href="shop-list.html">Shop List</a></li>
@@ -60,7 +60,7 @@
 											</ul> -->
 								</li>
 								<li class="drop">
-									<a href="blog-three-column.php">Blog</a>
+									<a href="blog-three-column.php">Artikel</a>
 									<!-- <ul class="dropdown">
 												<li><a href="blog-three-column.html">Blog Three Column</a></li>
 												<li><a href="blog-two-column.html">Blog Two Column</a></li>

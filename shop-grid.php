@@ -3,8 +3,77 @@
 <?php 
 include 'controller/conn.php';
 ?>
+<!-- Start section HEAD -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Look the right way.</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<?php include "./view/head.html" ;
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/icon.png">
+
+	<!-- Plugins -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/plugins.css">
+
+	<!-- Style Css -->
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Custom Styles -->
+	<link rel="stylesheet" href="css/custom.css">
+
+	  <!-- Font Awesome -->
+	  <link rel="stylesheet" href="css/fontawesome-free/css/all.min.css">
+      <style>
+      .crt-widget-grid .crt-grid-col1 .crt-grid-post{
+          max-width: 50% !important;
+      }
+      </style>
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '5676152455791140');
+	fbq('track', 'PageView');
+	</script>
+
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=5676152455791140&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9L45CVHLD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M9L45CVHLD');
+</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122244079-2">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122244079-2');
+</script>
+	
+</head>
+<!-- End section HEAD -->
+<?php 
 if(isset($_GET['sort_by'])){
     $sort_by = $_GET['sort_by'];
 }else{
@@ -50,11 +119,11 @@ if ($sort_by == 1) {
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump_inner text-center">
-                            <h2 class="bradcaump-title">Shop</h2>
+                            <h2 class="bradcaump-title">Produk</h2>
                             <nav class="bradcaump-content">
                                 <a class="breadcrumb_item" href="index.html">Home</a>
                                 <span class="brd-separetor">/</span>
-                                <span class="breadcrumb_item active">Shop</span>
+                                <span class="breadcrumb_item active">Produk</span>
                             </nav>
                         </div>
                     </div>
@@ -86,60 +155,47 @@ if ($sort_by == 1) {
                             <!-- End Single Wedget -->
 
                             <!-- Start Single Wedget -->
-                            <!-- <div class="sidebar_widget widget_price_filter mb--60">
-								<h2 class="sidebar_title">Filter</h2>
-								
-
-                                <div class="sidebar_filter">
-									<div class="nstSlider" data-range_min="0" data-range_max="100" data-cur_min="10"    data-cur_max="80">
-										<div class="bar"></div>
-										<div class="leftGrip"></div>
-										<div class="rightGrip"></div>
-									</div>
-									<div class="leftLabel"></div>
-									<div class="rightLabel"></div>
-
-								</div>
-								
-
-
-								
-                            </div> -->
-                            <!-- End Single Wedget -->
-
-                            <!-- Start Single Wedget -->
-                            <!-- <div class="sidebar_widget widget_categories mb--60">
-                                <h2 class="sidebar_title">Categories</h2>
-                                <ul class="sidebar_categories">
-                                    <li><a href="#">Accessories <span>(01)</span></a></li>
-                                    <li><a href="#">All <span>(01)</span></a></li>
-                                    <li><a href="#">Anthologies <span>(01)</span></a></li>
-                                    <li><a href="#">bestproduct <span>(01)</span></a></li>
-                                    <li><a href="#">Corner <span>60</span></a></li>
-                                </ul>
-                            </div> -->
-                            <!-- End Single Wedget -->
-
-                            <!-- Start Single Wedget -->
-                            <!-- <div class="sidebar_widget widget_banner mb--60">
-                                <div class="sidebar_banner">
-                                    <a href="#"><img src="img/banner/sidebar-banner.png" alt="sidebar banner"></a>
+                            <div class="sidebar_widget widget_categories mb--60">
+                                <h2 class="sidebar_title">Feed Instagram</h2>
+                                <div class="sidebar_categories row">
+                                    <!-- Place <div> tag where you want the feed to appear -->
+                                    <div id="curator-feed-default-feed-layout" class="col-12"></div>
+                                    <!-- The Javascript can be moved to the end of the html page before the </body> tag -->
+                                    <script type="text/javascript">
+                                    /* curator-feed-default-feed-layout */
+                                    (function(){
+                                    var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
+                                    i.src = "https://cdn.curator.io/published/a6bc62a7-5890-43db-97e3-08f462534b46.js";
+                                    e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+                                    })();
+                                    </script>
                                 </div>
-                            </div> -->
+                            </div>
                             <!-- End Single Wedget -->
+
+
 
                             <!-- Start Single Wedget -->
                             <div class="sidebar_widget widget_tag">
                                 <h2 class="sidebar_title">Tags</h2>
                                 <ul class="sidebar_tag">
-                                    <li><a href="#">Anthologies</a></li>
-                                    <li><a href="#">Art</a></li>
-                                    <li><a href="#">Sports</a></li>
-                                    <li><a href="#">Anthologies</a></li>
-                                    <li><a href="#">Watch</a></li>
+                                    <li>
+                                        <a>Kacamata</a>
+                                    </li>
+                                    <li>
+                                        <a>Photochromic</a>
+                                    </li>
+                                    <li>
+                                        <a>kacamatamurah</a>
+                                    </li>
+                                    <li>
+                                        <a>kacamatatrend</a>
+                                    </li>
+                                    <li>
+                                        <a>kacamataminus</a>
+                                    </li>
                                 </ul>
                             </div>
-                            <!-- End Single Wedget -->
 
 
 

@@ -108,11 +108,11 @@ $tagsX = explode(", ","$tags");
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump_inner text-center">
-                            <h2 class="bradcaump-title">Blog Details</h2>
+                            <h2 class="bradcaump-title">Artikel</h2>
                             <nav class="bradcaump-content">
                                 <a class="breadcrumb_item" href="index.php">Home</a>
                                 <span class="brd-separetor">/</span>
-                                <span class="breadcrumb_item active">Blog Details</span>
+                                <span class="breadcrumb_item active">Artikel Details</span>
                             </nav>
                         </div>
                     </div>
@@ -197,7 +197,7 @@ $tagsX = explode(", ","$tags");
 
                             <!-- Start Single Wedget -->
                             <div class="sidebar_widget widget_categories mb--60">
-                                <h2 class="sidebar_title">Categories</h2>
+                                <h2 class="sidebar_title">Feed Instagram</h2>
                                 <div class="sidebar_categories row">
                                     <!-- Place <div> tag where you want the feed to appear -->
                                     <div id="curator-feed-default-feed-layout" class="col-12"></div>

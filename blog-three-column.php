@@ -104,7 +104,7 @@ if ($search != "") {
                             <nav class="bradcaump-content">
                               <a class="breadcrumb_item" href="index.php">Home</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Article</span>
+                              <span class="breadcrumb_item active">Artikel</span>
                             </nav>
                         </div>
                     </div>
@@ -160,7 +160,7 @@ if ($search != "") {
 
                             <!-- Start Single Wedget -->
                             <div class="sidebar_widget widget_categories mb--60">
-                                <h2 class="sidebar_title">Categories</h2>
+                                <h2 class="sidebar_title">Feed Instagram</h2>
                                 <div class="sidebar_categories row">
                                     <!-- Place <div> tag where you want the feed to appear -->
                                     <div id="curator-feed-default-feed-layout" class="col-12"></div>
