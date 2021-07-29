@@ -34,7 +34,77 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 
 ?>
 
-<?php include "./view/head.html" ?>
+<!-- Start section HEAD -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Look the right way.</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/icon.png">
+
+	<!-- Plugins -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/plugins.css">
+
+	<!-- Style Css -->
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Custom Styles -->
+	<link rel="stylesheet" href="css/custom.css">
+
+	  <!-- Font Awesome -->
+	  <link rel="stylesheet" href="css/fontawesome-free/css/all.min.css">
+      <style>
+      .crt-widget-grid .crt-grid-col1 .crt-grid-post{
+          max-width: 50% !important;
+      }
+      </style>
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '5676152455791140');
+	fbq('track', 'ViewContent');
+    fbq('track', 'PageView');
+	</script>
+
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=5676152455791140&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9L45CVHLD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M9L45CVHLD');
+</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122244079-2">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122244079-2');
+</script>
+	
+</head>
+<!-- End section HEAD -->
 
 <body>
 
