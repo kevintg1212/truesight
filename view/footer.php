@@ -37,10 +37,15 @@
 							<div class="footer_widget">
 								<h2 class="ft_widget_title">Newsletter</h2>
 								<div class="textwidget">
-									<div class="input_box">
-										<input type="email" placeholder="Enter your email here">
-										<button>Subscribe</button>
-									</div>
+									<form action="controller/conn_add_newsletter.php" method="post">
+										<div class="input_box">
+											<input type="email" name="email" placeholder="Enter your email here" required>
+											<button type="submit">Subscribe</button>
+										</div>
+										<div class="form-output">
+											<p class="form-messege"></p>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>

@@ -2,6 +2,13 @@
 
 <?php 
 include 'controller/conn.php';
+session_start();
+if (isset($_SESSION['trues'])) {
+	if ($_SESSION['trues'] == "trues") {
+		echo "<script type='text/javascript'>alert('Terimakasih ! Kami akan kirimkan newsletter ke email anda.');</script>";
+	}
+}
+$_SESSION['trues'] = "";
 ?>
 
 
