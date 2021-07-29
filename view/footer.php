@@ -9,8 +9,8 @@
 								<h2 class="" style="color: white;">Truesight</h2>
 								<h5 class="ft_widget_title">Look the right way.</h5>
 								<div class="textwidget" style="font-size: 25px; color: #898787;">
-										<a target="_blank" href="https://www.facebook.com/Truesight-110719941191840/?ref=pages_you_manage" style="padding-right: 20px;"><i class="fab fa-instagram"></i></a>
-                                        <a target="_blank" href="https://www.instagram.com/truesight_eyewear/" style="padding-right: 20px;"><i class="fab fa-facebook-f"></i></a>
+										<a target="_blank" href="https://www.facebook.com/Truesight-110719941191840/?ref=pages_you_manage" style="padding-right: 20px;"><i class="fab fa-facebook-f"></i></a>
+                                        <a target="_blank" href="https://www.instagram.com/truesight_eyewear/" style="padding-right: 20px;"><i class="fab fa-instagram"></i></a>
 								</div>
 							</div>
 						</div>

@@ -1,14 +1,31 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+include('phpmailer/Exception.php');
+include('phpmailer/PHPMailer.php');
+include('phpmailer/SMTP.php');
+
+
+
+
+
+
 
     // Only process POST reqeusts.
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form fields and remove whitespace.
-        $name = strip_tags(trim($_POST["name"]));
-			$name = str_replace(array("\r","\n"),array(" "," "),$name);
-        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $subject = trim($_POST["subject"]);
-        $phone = trim($_POST["phone"]);
-        $message = trim($_POST["message"]);
+   
+        $email_pengirim = 'truesight.website@gmail.com'; // Isikan dengan email pengirim
+        $nama_pengirim = 'Sistem Website'; // Isikan dengan nama pengirim
+        $email_penerima = 'truesight.ts10@gmail.com'; // Ambil email penerima dari inputan form
+        $email = $_POST['email'];
+        $name = $_POST['name']; // Ambil email penerima dari inputan form
+        $subject = $_POST['subject']; // Ambil subject dari inputan form
+        $phone = $_POST['phone']; // Ambil message dari inputan form
+        $message = 'Nama Pengirim:'.$name .'<br>'.
+        'Email Pengirim:'.$email .'<br>'.
+        'No Telp:'.$phone .'<br>'.
+        'Pesan:<br>'.$_POST['message']; // Ambil message dari inputan form
+        
 
         // Check that data was sent to the mailer.
         if ( empty($name) OR empty($subject) OR empty($phone) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -18,26 +35,34 @@
             exit;
         }
 
-        // Set the recipient email address.
-        // FIXME: Update this to your desired email address.
-        $recipient = "info@yoursite.com";
+             // Get the form fields and remove whitespace.
 
-        // Set the email subject.
-        $subject = "New contact from $name";
-
-        // Build the email content.
-        $email_content = "Name: $name\n";
-        $email_content .= "Email: $email\n\n";
-        $email_content .= "Subject: $subject\n\n";
-        $email_content .= "Phone: $phone\n\n";
-        
-        $email_content .= "Message:\n$message\n";
-
-        // Build the email headers.
-        $email_headers = "From: $name <$email>";
+             
+             $mail = new PHPMailer;
+             $mail->isSMTP();
+             $mail->Host = 'smtp.gmail.com';
+             $mail->Username = $email_pengirim; // Email Pengirim
+             $mail->Password = 'Truesight10'; // Isikan dengan Password email pengirim
+             $mail->Port = 465;
+             $mail->SMTPAuth = true;
+             $mail->SMTPSecure = 'ssl';
+             // $mail->SMTPDebug = 2; // Aktifkan untuk melakukan debugging
+             $mail->setFrom($email_pengirim, $nama_pengirim);
+             $mail->addAddress($email_penerima, '');
+             $mail->isHTML(true); // Aktifkan jika isi emailnya berupa html
+             // Load file content.php
+             ob_start();
+             // include "content.php";
+             // $content = ob_get_contents(); // Ambil isi file content.php dan masukan ke variabel $content
+             // ob_end_clean();
+             $mail->Subject = $subject;
+             $mail->Body = $message;
+             //$mail->AddEmbeddedImage('image/logo.png', 'logo_mynotescode', 'logo.png'); // Aktifkan jika ingin menampilkan gambar dalam email
+             // Jika tanpa attachment
+             $send = $mail->send();
 
         // Send the email.
-        if (mail($recipient, $subject, $email_content, $email_headers)) {
+        if ($send) {
             // Set a 200 (okay) response code.
             http_response_code(200);
             echo "Thank You! Your message has been sent.";
