@@ -49,11 +49,11 @@ if($_SESSION['status_ca'] !="login"){
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Apakah anda yakin menghapus artikel ini ?<br>
-                        Nama artikel : <b id="namaArtikel"></b><br>
+                    <p>Apakah anda yakin menghapus link ini ?<br>
+                        Nama link : <b id="namalink"></b><br>
                 </div>
-                <form action="controller/conn_delete_artikel.php" method="post">
-                <input class="id_artikel" type="hidden" name="id_artikel">
+                <form action="controller/conn_delete_link.php" method="post">
+                <input class="id_link" type="hidden" name="id_link">
                 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
@@ -67,6 +67,93 @@ if($_SESSION['status_ca'] !="login"){
     </div>
     <!-- /.modal -->
 
+    <div class="modal fade" id="modal-edit-header">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Edit - Links</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="controller/conn_edit_link.php" method="post"  enctype="multipart/form-data">
+                    <div class="modal-body">                        
+                        <div class="form-group row">
+                            <label for="inputJudul1" class="col-sm-12 col-form-label">Judul Link</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputJudul1" name="inputJudul1"
+                                    placeholder="place some text here" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="textLink1" class="col-sm-12 col-form-label">Link</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="textLink1" name="textLink1"
+                                    placeholder="Discount" value="" >
+                                </div>
+                        </div>
+
+
+                    </div>
+
+                    <input type="hidden" class="form-group" id="id_link1" name="id_link1">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" id="modal-add-header">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Add - Links</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="controller/conn_add_link.php" method="post"  enctype="multipart/form-data">
+                    <div class="modal-body">                        
+                        <div class="form-group row">
+                            <label for="inputJudul2" class="col-sm-12 col-form-label">Judul Link</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="inputJudul2" name="inputJudul2"
+                                    placeholder="Masukan Judul Link" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="textLink2" class="col-sm-12 col-form-label">Link</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="textLink2" name="textLink2"
+                                    placeholder="Masukan Link" value="" >
+                                </div>
+                        </div>
+
+
+                    </div>
+
+                    <input type="hidden" class="form-group" id="id_link2" name="id_link2">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
     <div class="wrapper">
         <?php include "./view/common/navbar.php" ?>
@@ -80,7 +167,7 @@ if($_SESSION['status_ca'] !="login"){
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Artikel
+                            <h1 class="m-0">Links
                             </h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
@@ -101,9 +188,10 @@ if($_SESSION['status_ca'] !="login"){
                         <div class="col-12">
                             <div class="card">
                                 <div style="text-align: right;">
-                                    <a href="../cms_kacamata/add_artikel.php" class="btn btn-success float-sm-right" style="right: 0px; width: 150px; margin-top: 10px; margin-right: 20px;">
-                                        Tambah Artikel
-                                    </a>
+                                <button  class="btn btn-success float-sm-right" data-toggle="modal"
+                                        data-target="#modal-add-header" style="right: 0px; width: 200px; margin-top: 10px; margin-right: 20px;">
+                                        Tambah Link
+                                    </button>
                                 </div>
 
                                 <!-- /.card-header -->
@@ -111,36 +199,36 @@ if($_SESSION['status_ca'] !="login"){
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Judul</th>
-                                                <th>Gambar</th>
-                                                <th>Category</th>
-                                                <th>Tanggal Dibuat</th>
+                                                <th>Judul Link</th>
+                                                <th>Alamat Linkst</th>
+                                                <th>Jumlah Klik</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
                                             $no = 1;
-                                            $result_head = mysqli_query($db2,"select * from `artikel` a join kategori k on a.id_kategori = k.id_kategori");
+                                            $result_head = mysqli_query($db2,"select * from `links`");
                                             while($d_head = mysqli_fetch_array($result_head)){
                                             ?>
                                             <tr>
                                                 <td><?php echo $d_head['judul']; ?></td>
-                                                <td> <img class="shadow"
-                                                    style="width: 200px; border: 1px solid black;"
-                                                    src="../img/thumbnail/<?php echo $d_head['thumbnail']; ?>" alt="your image" /> </td>
-                                                <td><?php echo $d_head['kategori']; ?></td>
-                                                <td><?php echo $d_head['tanggal_posting']; ?></td>
+                                                <td><?php echo $d_head['link']; ?></td>
+                                                <td><?php echo $d_head['click']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-info" id="btnAddCol" href="edit_artikel.php?id_artikel=<?php echo $d_head['id_article']; ?>"
-                                                        style="width: 150px; margin-top: 10px; margin-right: 20px;">
+                                                    <button class="btn btn-info" name="id_ev"
+                                                            data-c="<?php echo $d_head['id_links']; ?>"
+                                                            data-e="<?php echo $d_head['judul']; ?>"
+                                                            data-v="<?php echo $d_head['link']; ?>"
+                                                            data-toggle="modal" data-target="#modal-edit-header"
+                                                        style="width: 100px; margin-top: 10px; margin-right: 20px;">
                                                         <i class="fas fa-pencil-alt"></i> Edit
-                                                    </a>
+                                                    </button>
                                                     <button class="btn btn-danger" name="id_ev"
-                                                            data-e="<?php echo $d_head['id_article'] ?>"
+                                                            data-e="<?php echo $d_head['id_links'] ?>"
                                                             data-v="<?php echo $d_head['judul'] ?>"
                                                             data-toggle="modal" data-target="#modal-cancel"
-                                                        style="width: 150px; margin-top: 10px; right: 0px;">
+                                                        style="width: 100px; margin-top: 10px; right: 0px;">
                                                         <i class="fas fa-times"></i> Delete
                                                     </button>
                                                 </td>
@@ -242,6 +330,28 @@ if($_SESSION['status_ca'] !="login"){
             });
         });
         
+        $('#modal-edit-header').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var recipient_e = button.data('e'); // Extract info from data-* attributes
+            var recipient_v = button.data('v');
+            var recipient_c = button.data('c');
+
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this);
+            modal.find('.id_link1').val(recipient_c);
+            modal.find('.inputJudul1').val(recipient_e);
+            modal.find('.textLink1').val(recipient_v);
+
+
+            
+            document.getElementById("id_link1").value = recipient_c;
+            document.getElementById("inputJudul1").value = recipient_e;
+            document.getElementById("textLink1").value = recipient_v;
+
+            
+        })
+
         $('#modal-cancel').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); // Button that triggered the modal
             var recipient_e = button.data('e'); // Extract info from data-* attributes
@@ -249,9 +359,14 @@ if($_SESSION['status_ca'] !="login"){
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this);
-            modal.find('.id_artikel').val(recipient_e);
-            document.getElementById("namaArtikel").innerHTML = recipient_v;
+            modal.find('.id_link').val(recipient_e);
+            document.getElementById("namalink").innerHTML = recipient_v;
             // document.getElementById("id_varian").innerHTML = recipient_v;
+        })
+
+        $('#modal-add-header').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var modal = $(this)
         })
 
         $("#accountHead").removeClass("none");
