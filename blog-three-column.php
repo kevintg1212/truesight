@@ -86,7 +86,10 @@ if ($search != "") {
 
 <body>
 
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSN5RNH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 	<!-- Wrapper -->
 	<div id="wrapper" class="wrapper">
 
@@ -104,7 +107,7 @@ if ($search != "") {
                             <nav class="bradcaump-content">
                               <a class="breadcrumb_item" href="index.php">Home</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Artikel</span>
+                              <span class="breadcrumb_item active">Article</span>
                             </nav>
                         </div>
                     </div>

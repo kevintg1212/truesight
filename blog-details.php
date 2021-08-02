@@ -91,7 +91,10 @@ $tagsX = explode(", ","$tags");
 <!-- End section HEAD -->
 
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSN5RNH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
     <!-- Wrapper -->
     <div id="wrapper" class="wrapper">
@@ -108,11 +111,11 @@ $tagsX = explode(", ","$tags");
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump_inner text-center">
-                            <h2 class="bradcaump-title">Artikel</h2>
+                            <h2 class="bradcaump-title">Blog Details</h2>
                             <nav class="bradcaump-content">
                                 <a class="breadcrumb_item" href="index.php">Home</a>
                                 <span class="brd-separetor">/</span>
-                                <span class="breadcrumb_item active">Artikel Details</span>
+                                <span class="breadcrumb_item active">Blog Details</span>
                             </nav>
                         </div>
                     </div>

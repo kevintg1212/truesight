@@ -17,7 +17,10 @@ $_SESSION['trues'] = "";
 <?php include "./view/head.html" ?>
 
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSN5RNH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 	<!-- Wrapper -->
 	<div id="wrapper" class="wrapper">
@@ -1833,6 +1836,7 @@ $_SESSION['trues'] = "";
 			?>
 
 			var deadline = '<?php echo $date; ?>';
+			var deadline = new Date(deadline.replace(/-/g, '/'));
 		
 			function pad(num, size) {
 				var s = "0" + num;
