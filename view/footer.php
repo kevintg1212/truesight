@@ -20,13 +20,18 @@
 						$no = 1;
 						$result_head = mysqli_query($db2,"select * from `contact_us`");
 						while($d_head = mysqli_fetch_array($result_head)){
+							$phone = $d_head['phone'];
+							$phone = str_replace("_", "", $phone);
+							$x = explode(" ", $phone);
+							$phone_number = str_replace("-", "", $x[1]);
+							$phone_number = str_replace("_", "", $phone_number);
 						?>
 						<div class="col-lg-3 col-sm-6 col-12 mb--50">
 							<div class="footer_widget">
 								<h5 class="ft_widget_title">Hubungi Kami</h5>
 								<div class="textwidget">
 									<p> <?php echo $d_head['address']?> </p>
-									<a target="_blank" href="https://api.whatsapp.com/send?phone=62<?php echo $d_head['phone'] ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20kerennya%20direspond%20cepat%20yah."> <p> <?php echo $d_head['phone']?> </p> </a>
+									<a target="_blank" href="https://api.whatsapp.com/send?phone=62<?php echo $phone_number; ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20kerennya%20direspond%20cepat%20yah."> <p> <?php echo $d_head['phone']?> </p> </a>
 									<p> <?php echo $d_head['email']?> </p>
 								</div>
 							</div>
