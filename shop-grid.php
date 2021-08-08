@@ -205,6 +205,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <li>
                                         <a>kacamataminus</a>
                                     </li>
+                                    <li>
+                                        <a>Glasses</a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -257,7 +260,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                             href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
                                                     </h4>
                                                     <ul class="cart_action text-white">
-														<li> <p> <?php echo $d_head['view'] ?> views </p> </li>
+														<li> <p> <?php echo $d_head['deskripsi_singkat'] ?></p> </li>
 													</ul>
                                                 </div>
                                                 <div class="content">
