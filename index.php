@@ -281,9 +281,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img" style="width: 270px;">
 									</a>
 									<div class="product_action">
-										<h4>
-											<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?> </a>
+										<h4><a
+												href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
 										</h4>
+										<ul class="cart_action text-white">
+											<li> <p> <?php echo $d_head['deskripsi_singkat'] ?></p> </li>
+										</ul>
 									</div>
 									<div class="content">
 										<h4>
