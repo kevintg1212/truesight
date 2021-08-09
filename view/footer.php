@@ -9,8 +9,8 @@
 								<h2 class="" style="color: white;">Truesight</h2>
 								<h5 class="ft_widget_title">Look the right way.</h5>
 								<div class="textwidget" style="font-size: 25px; color: #898787;">
-										<a target="_blank" href="https://www.facebook.com/Truesight-110719941191840/?ref=pages_you_manage" style="padding-right: 20px;"><i class="fab fa-instagram"></i></a>
-                                        <a target="_blank" href="https://www.instagram.com/truesight_eyewear/" style="padding-right: 20px;"><i class="fab fa-facebook-f"></i></a>
+										<a target="_blank" href="https://www.facebook.com/Truesight-110719941191840/?ref=pages_you_manage" style="padding-right: 20px;"><i class="fab fa-facebook-f"></i></a>
+                                        <a target="_blank" href="https://www.instagram.com/truesight_eyewear/" style="padding-right: 20px;"><i class="fab fa-instagram"></i></a>
 								</div>
 							</div>
 						</div>
@@ -20,13 +20,18 @@
 						$no = 1;
 						$result_head = mysqli_query($db2,"select * from `contact_us`");
 						while($d_head = mysqli_fetch_array($result_head)){
+							$phone = $d_head['phone'];
+							$phone = str_replace("_", "", $phone);
+							$x = explode(" ", $phone);
+							$phone_number = str_replace("-", "", $x[1]);
+							$phone_number = str_replace("_", "", $phone_number);
 						?>
 						<div class="col-lg-3 col-sm-6 col-12 mb--50">
 							<div class="footer_widget">
 								<h5 class="ft_widget_title">Hubungi Kami</h5>
 								<div class="textwidget">
 									<p> <?php echo $d_head['address']?> </p>
-									<a href="https://api.whatsapp.com/send?phone=<?php echo $d_head['phone'] ?>"> <p> <?php echo $d_head['phone']?> </p> </a>
+									<a target="_blank" href="https://api.whatsapp.com/send?phone=62<?php echo $phone_number; ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20kerennya%20direspond%20cepat%20yah."> <p> <?php echo $d_head['phone']?> </p> </a>
 									<p> <?php echo $d_head['email']?> </p>
 								</div>
 							</div>
@@ -37,10 +42,15 @@
 							<div class="footer_widget">
 								<h2 class="ft_widget_title">Newsletter</h2>
 								<div class="textwidget">
-									<div class="input_box">
-										<input type="email" placeholder="Enter your email here">
-										<button>Subscribe</button>
-									</div>
+									<form action="controller/conn_add_newsletter.php" method="post">
+										<div class="input_box">
+											<input type="email" name="email" placeholder="Enter your email here" required>
+											<button type="submit">Subscribe</button>
+										</div>
+										<div class="form-output">
+											<p class="form-messege"></p>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>

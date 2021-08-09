@@ -2,6 +2,13 @@
 
 <?php 
 include 'controller/conn.php';
+session_start();
+if (isset($_SESSION['trues'])) {
+	if ($_SESSION['trues'] == "trues") {
+		echo "<script type='text/javascript'>alert('Terimakasih ! Kami akan kirimkan newsletter ke email anda.');</script>";
+	}
+}
+$_SESSION['trues'] = "";
 ?>
 
 
@@ -10,7 +17,10 @@ include 'controller/conn.php';
 <?php include "./view/head.html" ?>
 
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSN5RNH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 	<!-- Wrapper -->
 	<div id="wrapper" class="wrapper">
@@ -106,7 +116,7 @@ include 'controller/conn.php';
 							<div class="slide_text">
 								<h3><?php echo $d_head['text3']; ?></h3>
 								<h1><?php echo $d_head['judul']; ?></h1>
-								<a href="#">Buy Now</a>
+								<a href="shop-grid.php">Lihat Produk</a>
 							</div>
 
 							<?php 
@@ -252,7 +262,7 @@ include 'controller/conn.php';
 					<div class="col-lg-12">
 						<div class="section_title text-center">
 							<h2>NEW ARRIVAL SUNGLASSES</h2>
-							<p>Eye chasmish are very important for thos whos have some difficult in their eye to see every hing clearly and perfectly</p>
+							<p>Jadilah konsumen bijak dalam memilih kacamata.</p>
 						</div>
 					</div>
 				</div>
@@ -1635,8 +1645,8 @@ include 'controller/conn.php';
 								<img src="img/icons/ship_icon_1.png" alt="icon">
 							</div>
 							<div class="content">
-								<h3>Free home delivery</h3>
-								<p>Eye chasmish are very important for thos whos have some difficult</p>
+								<h3>Ongkir Terjangkau</h3>
+								<p>Harga ongkos kirim sangat<br>tejangkau.</p>
 							</div>
 						</div>
 					</div>
@@ -1649,7 +1659,7 @@ include 'controller/conn.php';
 							</div>
 							<div class="content">
 								<h3>Quality Products</h3>
-								<p>Eye chasmish are very important for thos whos have some difficult</p>
+								<p>Kacamata kami mengutamakan kualitas terbaik.</p>
 							</div>
 						</div>
 					</div>
@@ -1661,8 +1671,8 @@ include 'controller/conn.php';
 								<img src="img/icons/ship_icon_3.png" alt="icon">
 							</div>
 							<div class="content">
-								<h3>Gift Voucher</h3>
-								<p>Eye chasmish are very important for thos whos have some difficult</p>
+								<h3>Promo</h3>
+								<p>Dapatkan promo atau hadiah menarik dari kami.</p>
 							</div>
 						</div>
 					</div>
@@ -1674,8 +1684,8 @@ include 'controller/conn.php';
 								<img src="img/icons/ship_icon_4.png" alt="icon">
 							</div>
 							<div class="content">
-								<h3>3 Days easy return</h3>
-								<p>Eye chasmish are very important for thos whos have some difficult</p>
+								<h3>Konsultasi</h3>
+								<p>Konsultasikan kacamata yang cocok untuk anda.</p>
 							</div>
 						</div>
 					</div>
@@ -1832,6 +1842,7 @@ include 'controller/conn.php';
 			?>
 
 			var deadline = '<?php echo $date; ?>';
+			var deadline = new Date(deadline.replace(/-/g, '/'));
 		
 			function pad(num, size) {
 				var s = "0" + num;

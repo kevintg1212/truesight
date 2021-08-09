@@ -21,7 +21,10 @@ $harga_diskon = 0;
 
 if($discount != 0) {
     $harga_diskon = $harga - ($harga * $d_head['discount'] / 100);
-}
+};
+
+$deskripsi_singkat = $d_head['deskripsi_singkat'];
+	
 
 $no = 1;
 $contact = mysqli_query($db2,"select * from `contact_us`");
@@ -30,17 +33,97 @@ while($d_head = mysqli_fetch_array($contact)){
     $x = explode(" ", $phone);
     $phone_number = str_replace("-", "", $x[1]); }
 }
-
+	
 $tagsX = explode(";", $tags);
-
+	
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 ?>
 
-<?php include "./view/head.html" ?>
+<!-- Start section HEAD -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Look the right way.</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/icon.png">
+
+	<!-- Plugins -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/plugins.css">
+
+	<!-- Style Css -->
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Custom Styles -->
+	<link rel="stylesheet" href="css/custom.css">
+
+	  <!-- Font Awesome -->
+	  <link rel="stylesheet" href="css/fontawesome-free/css/all.min.css">
+      <style>
+      .crt-widget-grid .crt-grid-col1 .crt-grid-post{
+          max-width: 50% !important;
+      }
+      </style>
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '5676152455791140');
+	fbq('track', 'ViewContent');
+    fbq('track', 'PageView');
+	</script>
+
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=5676152455791140&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9L45CVHLD"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-M9L45CVHLD');
+	</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122244079-2">
+	</script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-122244079-2');
+	</script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-NSN5RNH');</script>
+	<!-- End Google Tag Manager -->
+	
+</head>
+<!-- End section HEAD -->
 
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSN5RNH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <!-- Wrapper -->
     <div id="wrapper" class="wrapper">
 
@@ -160,14 +243,14 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                             </ul>
 
                             <div class="pro_dtl">
-                                <p>Products available in store.</p>
+                                <p><?php echo $deskripsi_singkat; ?></p>
                             </div>
                             
                             <div class="product_cart_action">
                                 <div class="add_to_cart">
                                     <ul class="cart_list">
                                         <li class="shopping_basket">
-                                            <a href="https://api.whatsapp.com/send?phone=<?php echo $phone_number ?>">
+                                            <a target="_blank" href="https://api.whatsapp.com/send?phone=62<?php echo $phone_number ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20<?php echo $nama; ?>%20direspond%20cepat%20yah.">
                                                 <i class="fab fa-whatsapp"></i> Buy now</a>
                                         </li>
                                     </ul>
@@ -176,10 +259,10 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                             <div class="product_share">
                                 <span>Share:</span>
                                 <ul class="social_share">
-                                    <li>
+									<li>
                                         <?php
                                         echo '<iframe src="https://www.facebook.com/plugins/share_button.php?href='.$actual_link.'&layout=button&size=large&width=91&height=28&appId" width="91" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>';
-                                        ?>
+                                         ?>
                                     </li>
                                     <li>
                                         <a class="instagram" href="https://www.instagram.com/truesight_eyewear/">
@@ -282,15 +365,6 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        $('.fbsharelink').click( function() 
-        {
-            var shareurl = $(this).data('shareurl');
-            window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(shareurl)+'&t='+document.title, '', 
-            'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-            return false;
-        });
-    </script>
 </body>
 
 </html>

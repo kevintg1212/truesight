@@ -16,7 +16,10 @@ $address_google = $d_head['address_google'];
 <?php include "./view/head.html" ?>
 
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSN5RNH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <!-- Wrapper -->
     <div id="wrapper" class="wrapper">
 
@@ -129,7 +132,7 @@ $address_google = $d_head['address_google'];
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="submit" disabled>Send Message</button>
+                                        <button type="submit">Send Message</button>
                                     </div>
                                 </div>
                             </form>
@@ -159,196 +162,8 @@ $address_google = $d_head['address_google'];
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <!-- Google Map js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>
-    <script>
-        // When the window has finished loading create our google map below
-        google.maps.event.addDomListener(window, 'load', init);
 
-        function init() {
-            // Basic options for a simple Google Map
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
-                // How zoomed in you want the map to start at (always required)
-                zoom: 12,
-
-                scrollwheel: false,
-
-                // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(-6.957567, 107.5562469), // New York
-
-                // How you would like to style the map. 
-                // This is where you would paste any style found on Snazzy Maps.
-                styles: [{
-                        "featureType": "all",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                                "saturation": 36
-                            },
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 40
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "all",
-                        "elementType": "labels.text.stroke",
-                        "stylers": [{
-                                "visibility": "on"
-                            },
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 16
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "all",
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.stroke",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 17
-                            },
-                            {
-                                "weight": 1.2
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 21
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 17
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry.stroke",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 29
-                            },
-                            {
-                                "weight": 0.2
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 18
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.local",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 16
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "transit",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 19
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 17
-                            }
-                        ]
-                    }
-                ]
-            };
-
-            // Get the HTML DOM element that will contain your map 
-            // We are using a div with id="map" seen below in the <body>
-            var mapElement = document.getElementById('googleMap');
-
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(-6.957567, 107.5562469),
-                map: map,
-                title: 'googlemap!',
-                animation: google.maps.Animation.BOUNCE
-
-            });
-        }
-    </script>
+    
     <script src="js/main.js"></script>
 </body>
 

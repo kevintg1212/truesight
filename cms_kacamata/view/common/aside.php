@@ -5,21 +5,9 @@
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
-$first_part = $components[2];
-if (isset($_GET['periode']) && isset($_GET['outlet_x'])) {
-$peroide_x = $_GET['periode'];
-$outlet_x = $_GET['Outlet'];
-}else{
-    $peroide_x = "";
-    $outlet_x = "";
-}
-if (isset($_GET['periode']) && !isset($_GET['outlet_x'])) {
-    $peroide_x = $_GET['periode'];
+$first_part = $components[3];
 
-    }else{
-        $peroide_x = "";
 
-    }
 
 ?>
 
@@ -111,6 +99,15 @@ if (isset($_GET['periode']) && !isset($_GET['outlet_x'])) {
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="links.php"
+                        class="nav-link <?php if ($first_part=="links.php") {echo "active"; } else  {echo "noactive";}?>">
+                        <i class="nav-icon fas fa-link"></i>
+                        <p>
+                            Links
+                        </p>
+                    </a>
                 </li>
         </nav>
         <!-- /.sidebar-menu -->
