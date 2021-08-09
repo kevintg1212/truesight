@@ -280,9 +280,15 @@ include 'controller/conn.php';
 											<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a>
 										</h4>
 										<ul class="price">
-											<?php $harga = $d_head['harga']; ?>
-											<li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
-											<!-- <li class="old-price">$35</li> -->
+											<?php $harga = $d_head['harga'];
+											if($d_head['discount'] != 0) {
+												$harga_diskon = $harga - ($harga * $d_head['discount'] / 100);
+												echo '<li>Rp'. number_format($harga_diskon,2,',','.') .'</li>';
+												echo '<li class="old-price">'. number_format($harga,2,',','.') .'</li>';
+											} else {
+												echo '<li>Rp'. number_format($harga,2,',','.') .'</li>';
+											}    
+											?>
 										</ul>
 									</div>
 								</div>

@@ -17,6 +17,11 @@ $harga = $d_head['harga'];
 $gambar = $d_head['gambar'];
 $tags = $d_head['tags'];
 $view = $d_head['view'];
+$harga_diskon = 0;
+
+if($discount != 0) {
+    $harga_diskon = $harga - ($harga * $d_head['discount'] / 100);
+}
 
 $no = 1;
 $contact = mysqli_query($db2,"select * from `contact_us`");
@@ -122,9 +127,17 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                             <h4> <?php echo $nama; ?> </h4>
 
                             <div class="price">
-                                <span class="new">Rp
+                                <?php 
+                                    if($harga_diskon != 0) {
+                                        echo '<span class="new">Rp'. number_format($harga_diskon,2,',','.') .'</span>';
+                                        echo '<span class="old">Rp'. number_format($harga,2,',','.') .'</span>';
+                                    } else {
+                                        echo '<span class="new">Rp'. number_format($harga,2,',','.') .'</span>';
+                                    };
+                                ?>
+                                <!-- <span class="new">Rp
                                 <?php echo number_format($harga,2,',','.'); ?>
-                                </span>
+                                </span> -->
                                 <!-- <span class="old">$31</span> -->
                             </div>
 
