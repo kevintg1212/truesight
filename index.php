@@ -27,70 +27,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 		<!-- Header -->
 		<?php include "./view/header.php" ?>
-		<!-- Mini Cart Wrap Start -->
-		<div class="mini-cart-wrap">
-
-			<!-- Mini Cart Top -->
-			<div class="mini-cart-top">
-				<button class="close-cart">Close Cart
-					<i class="icofont icofont-close"></i>
-				</button>
-			</div>
-
-			<!-- Mini Cart Products -->
-			<ul class="mini-cart-products">
-				<li>
-					<a class="image">
-						<img src="img/product/product-1.jpg" alt="Product">
-					</a>
-					<div class="content">
-						<a href="single-product.html" class="title">Simple Silacon Glasses</a>
-						<span class="price">Price: $59</span>
-						<span class="qty">Qty: 01</span>
-					</div>
-					<button class="remove">
-						<i class="fa fa-trash-o"></i>
-					</button>
-				</li>
-				<li>
-					<a class="image">
-						<img src="img/product/product-2.jpg" alt="Product">
-					</a>
-					<div class="content">
-						<a href="single-product.html" class="title">Simple Easin Glasses</a>
-						<span class="price">Price: $20</span>
-						<span class="qty">Qty: 02</span>
-					</div>
-					<button class="remove">
-						<i class="fa fa-trash-o"></i>
-					</button>
-				</li>
-				<li>
-					<a class="image">
-						<img src="img/product/product-3.jpg" alt="Product">
-					</a>
-					<div class="content">
-						<a href="single-product.html" class="title">Simple Macrox Glasses</a>
-						<span class="price">Price: $320</span>
-						<span class="qty">Qty: 03</span>
-					</div>
-					<button class="remove">
-						<i class="fa fa-trash-o"></i>
-					</button>
-				</li>
-			</ul>
-			<!-- Mini Cart Bottom -->
-			<div class="mini-cart-bottom">
-				<h4 class="sub-total">Total:
-					<span>$120</span>
-				</h4>
-				<div class="button">
-					<a href="checkout.html">CHECKOUT</a>
-				</div>
-			</div>
-
-		</div>
-		<!-- Mini Cart Wrap End -->
+		
 
 		<!-- Cart Overlay -->
 		<div class="body_overlay"></div>
@@ -281,18 +218,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<img src="img/gambarUtama/<?php echo $d_head['gambar']; ?>" alt="product img" style="width: 270px;">
 									</a>
 									<div class="product_action">
-										<h4>
-											<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?> </a>
+										<h4><a
+												href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
 										</h4>
+										<ul class="cart_action text-white">
+											<li> <p> <?php echo $d_head['deskripsi_singkat'] ?></p> </li>
+										</ul>
 									</div>
 									<div class="content">
 										<h4>
 											<a href="single-product.php?id_produk=<?php echo $d_head['id_produk'] ?>"><?php echo $d_head['nama']; ?></a>
 										</h4>
 										<ul class="price">
-											<?php $harga = $d_head['harga']; ?>
-											<li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
-											<!-- <li class="old-price">$35</li> -->
+											<div class="price">
+											<?php $harga = $d_head['harga'];
+											if($d_head['discount'] != 0) {
+												$harga_diskon = $harga - ($harga * $d_head['discount'] / 100);
+												echo '<li class="old-price">Rp'. number_format($harga,2,',','.') .'</li>';
+												echo '<li>Rp'. number_format($harga_diskon,2,',','.') .'</li>';
+											} else {
+												echo '<li>Rp'. number_format($harga,2,',','.') .'</li>';
+											}    
+											?>
+
+											</div>
 										</ul>
 									</div>
 								</div>
@@ -1695,127 +1644,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		?>
 		<!-- End Footer Area -->
 
-        <!-- Quick View Modal -->
-        <div class="quick-view-modal">
-            <div class="quick-view-modal-inner">
-                <div class="container">
-                    <div class="product-details">
-                        <!-- Product Details Left -->
-                        <div class="product-details-left">
-                            <div class="product-details-images slider-navigation-2">
-                                <a href="img/product/sm1.png">
-                                    <img src="img/product/big-img.png" alt="product image">
-                                </a>
-                                <a href="img/product/sm2.png">
-                                    <img src="img/product/big-img.png" alt="product image">
-                                </a>
-                                <a href="img/product/sm3.png">
-                                    <img src="img/product/big-img.png" alt="product image">
-                                </a>
-                                <a href="img/product/sm1.png">
-                                    <img src="img/product/big-img.png" alt="product image">
-                                </a>
-                                <a href="img/product/sm1.png">
-                                    <img src="img/product/big-img.png" alt="product image">
-                                </a>
-                            </div>
-                            <div class="product-details-thumbs slider-navigation-2">										
-                                <img src="img/product/sm1.png" alt="product image thumb">
-                                <img src="img/product/sm2.png" alt="product image thumb">
-                                <img src="img/product/sm3.png" alt="product image thumb">
-                                <img src="img/product/sm1.png" alt="product image thumb">
-                                <img src="img/product/sm1.png" alt="product image thumb">
-                            </div>
-                        </div>
-                        <!--// Product Details Left -->
-            
-                        <!-- Product Details Right -->
-                        <div class="product-details-right">
-                            <h5 class="product-title">Aenean Eu Tristique</h5>
-                            
-                            <div class="ratting-stock-availbility">
-                                <div class="ratting-box">
-                                    <span><i class="fa fa-star"></i></span>
-                                    <span><i class="fa fa-star"></i></span>
-                                    <span><i class="fa fa-star"></i></span>
-                                    <span><i class="fa fa-star"></i></span>
-                                    <span><i class="fa fa-star"></i></span>
-                                </div>
-                                <span class="stock-available">In stock</span>
-                            </div>
-                            
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. adipiscing cursus eu, suscipit id nulla.</p>
-                            
-                            <div class="price-box">
-                                <span class="pricebox-price">£80.00</span>
-                            </div>
-            
-                            <div class="product-details-quantity">
-                                <div class="quantity-select">
-									<div class="pro-quantity"><div class="pro-qty"><input type="text" value="1"></div></div>
-								</div>
-                                <a href="#" class="add-to-cart-button">
-                                    <span>ADD TO CART</span>
-                                </a>
-                            </div>
-            
-                            <div class="product-details-color">
-                                <span>Color :</span>
-                                <ul>
-                                    <li class="red"><span></span></li>
-                                    <li class="green checked"><span></span></li>
-                                    <li class="blue"><span></span></li>
-                                    <li class="black"><span></span></li>
-                                </ul>
-                            </div>
-            
-                            <div class="product-details-size">
-                                <span>Size :</span>
-                                <ul>
-                                    <li class="checked"><span>S</span></li>
-                                    <li><span>M</span></li>
-                                    <li><span>L</span></li>
-                                    <li><span>XL</span></li>
-                                    <li><span>XXL</span></li>
-                                </ul>
-                            </div>
-            
-                            <div class="product-details-categories">
-                                <span>Categories :</span>
-                                <ul>
-                                    <li><a href="shop.html">Accessories</a></li>
-                                    <li><a href="shop.html">Kids</a></li>
-                                    <li><a href="shop.html">Women</a></li>
-                                </ul>
-                            </div>
-            
-                            <div class="product-details-tags">
-                                <span>Tags :</span>
-                                <ul>
-                                    <li><a href="shop.html">Electronic</a></li>
-                                    <li><a href="shop.html">Television</a></li>
-                                </ul>
-                            </div>
-            
-                            <div class="product-details-socialshare">
-                                <span>Share :</span>
-                                <ul>
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
-                            </div> 
-                        </div>
-                        <!--// Product Details Right -->
-            
-                    </div>
-                </div>
-            </div>
-            <button class="close-quickview-modal"><i class="fa fa-close"></i></button>
-        </div>
-        <!--// Quick View Modal -->
+        
 
 	</div>
 	<!--// Wrapper -->

@@ -23,8 +23,9 @@ $tagsX = explode(", ","$tags");
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Look the right way.</title>
-	<meta name="description" content="">
+	<title>Truesight | <?php echo $judul; ?></title>
+	<meta name="description" content="<?php echo $dekripsi; ?>">
+	<Meta name='keywords' content='kacamata, kacamata photocromic, kacamata anti radiasi, kacamata hitam, lensa kacamata, frame kacamata, kacamata rekomendasi, kacata yang cocok untuk wajah, <?php echo $tags; ?>' />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Favicon -->

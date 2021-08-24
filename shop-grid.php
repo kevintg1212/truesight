@@ -7,8 +7,9 @@ include 'controller/conn.php';
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Look the right way.</title>
-	<meta name="description" content="">
+	<title>Truesight Produk | Kacamata Profesional</title>
+	<meta name="description" content="Layanan kacamata profesional | Lensa kacamata, frame kacamata, dan konsultasi gratis kacamata yang cocok untuk wajah kamu.">
+	<Meta name='keywords' content='kacamata, kacamata photocromic, kacamata anti radiasi, kacamata hitam, lensa kacamata, frame kacamata, kacamata rekomendasi, kacata yang cocok untuk wajah' />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Favicon -->
@@ -268,8 +269,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                             href="controller/conn_add_produk.php?id_produk=<?php echo $d_head['id_produk']?>&view=<?php echo $d_head['view']?>"><?php echo $d_head['nama']; ?></a>
                                                     </h4>
                                                     <ul class="price">
-                                                        <?php $harga = $d_head['harga']; ?>
-                                                        <li>Rp <?php echo number_format($harga,2,',','.'); ?></li>
+                                                        <div class="price">
+                                                        <?php $harga = $d_head['harga'];
+                                                        if($d_head['discount'] != 0) {
+                                                            $harga_diskon = $harga - ($harga * $d_head['discount'] / 100);
+                                                            echo '<li class="old-price">Rp'. number_format($harga,2,',','.') .'</li>';
+                                                            echo '<li>Rp'. number_format($harga_diskon,2,',','.') .'</li>';
+                                                        } else {
+                                                            echo '<li>Rp'. number_format($harga,2,',','.') .'</li>';
+                                                        }    
+                                                        ?>
+
+                                                        </div>
                                                     </ul>
                                                 </div>
                                             </div>

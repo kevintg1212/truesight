@@ -3509,7 +3509,7 @@ textarea:-ms-input-placeholder {
       display: flex;
       flex-flow: column wrap;
       justify-content: space-between;
-      padding: 30px 20px;
+      padding: 30px 20px 5px 20px;
       position: absolute;
       text-align: center;
       top: 0;
@@ -3533,9 +3533,9 @@ textarea:-ms-input-placeholder {
           font-size: 18px;
           font-weight: 700;
           margin: 0 5px; }
-          .product .thumb .content ul.price li.old-price {
+          .product .thumb .content ul.price div.price li.old-price {
             text-decoration: line-through;
-            color: #454545; }
+            color: #c90707; }
 
 .single_content.tab-pane:not(.active) {
   display: none; }
@@ -5734,6 +5734,7 @@ p.form-messege {
     margin-right: 10px;
     font-weight: 600; }
   .single_product_inner .price span.old {
+    color: #c90707;
     text-decoration: line-through; }
 .single_product_inner .rating {
   display: flex;

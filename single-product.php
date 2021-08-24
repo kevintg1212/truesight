@@ -17,6 +17,12 @@ $harga = $d_head['harga'];
 $gambar = $d_head['gambar'];
 $tags = $d_head['tags'];
 $view = $d_head['view'];
+$harga_diskon = 0;
+
+if($discount != 0) {
+    $harga_diskon = $harga - ($harga * $d_head['discount'] / 100);
+};
+
 $deskripsi_singkat = $d_head['deskripsi_singkat'];
 	
 
@@ -38,8 +44,9 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Look the right way.</title>
-	<meta name="description" content="">
+	<title><?php echo $nama; ?> | Kacamata Profesional</title>
+	<meta name="description" content="Layanan kacamata profesional | Lensa kacamata, frame kacamata, dan konsultasi gratis kacamata yang cocok untuk wajah kamu.">
+	<Meta name='keywords' content='kacamata, kacamata photocromic, kacamata anti radiasi, kacamata hitam, lensa kacamata, frame kacamata, kacamata rekomendasi, kacata yang cocok untuk wajah' />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Favicon -->
@@ -101,6 +108,23 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-122244079-2');
+	</script>
+		<script>
+	gtag("event", "view_item", {
+  "value": <?php echo $harga; ?>,
+    "currency": "IDR",
+    "items": [
+    {
+      "item_id": "<?php echo $id_produk; ?>",
+      "item_name": "<?php echo $nama; ?>",
+      "item_brand": "Truesight",
+      "quantity": 1,
+	  "currency": "IDR",
+      "price": <?php echo $harga; ?>,
+	  "discount": <?php echo $discount; ?>
+    }
+    ]
+    });
 	</script>
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -204,9 +228,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <h4> <?php echo $nama; ?> </h4>
 
                             <div class="price">
-                                <span class="new">Rp
+                                <?php 
+                                    if($harga_diskon != 0) {
+                                        echo '<span class="old">Rp'. number_format($harga,2,',','.') .'</br></span>';
+                                        echo '<span class="new">Rp'. number_format($harga_diskon,2,',','.') .'</span>';
+                                    } else {
+                                        echo '<span class="new">Rp'. number_format($harga,2,',','.') .'</span>';
+                                    };
+                                ?>
+                                <!-- <span class="new">Rp
                                 <?php echo number_format($harga,2,',','.'); ?>
-                                </span>
+                                </span> -->
                                 <!-- <span class="old">$31</span> -->
                             </div>
 
@@ -236,7 +268,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="add_to_cart">
                                     <ul class="cart_list">
                                         <li class="shopping_basket">
-                                            <a target="_blank" href="https://api.whatsapp.com/send?phone=62<?php echo $phone_number ?>&text=Hallo%20True%20Sight.%20Saya%20mau%20tanya-tanya%20kacamata%20<?php echo $nama; ?>%20direspond%20cepat%20yah.">
+                                            <a target="_blank" href="controller/conn_purchase.php?id_produk=<?php echo $id_produk; ?>">
                                                 <i class="fab fa-whatsapp"></i> Buy now</a>
                                         </li>
                                     </ul>
