@@ -230,13 +230,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="price">
                                 <?php 
                                     if($harga_diskon != 0) {
-<<<<<<< HEAD
                                         echo '<span class="old">Rp'. number_format($harga,2,',','.') .'</br></span>';
                                         echo '<span class="new">Rp'. number_format($harga_diskon,2,',','.') .'</span>';
-=======
-                                        echo '<span class="new">Rp'. number_format($harga_diskon,2,',','.') .'</span>';
-                                        echo '<span class="old">Rp'. number_format($harga,2,',','.') .'</span>';
->>>>>>> 4110b5dd2925e73b9d0d223e65b62515dbd170b9
                                     } else {
                                         echo '<span class="new">Rp'. number_format($harga,2,',','.') .'</span>';
                                     };
