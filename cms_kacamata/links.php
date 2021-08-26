@@ -77,7 +77,14 @@ if($_SESSION['status_ca'] !="login"){
                     </button>
                 </div>
                 <form action="controller/conn_edit_link.php" method="post"  enctype="multipart/form-data">
-                    <div class="modal-body">                        
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="urutan1" class="col-sm-12 col-form-label">Urutan</label>
+                                <div class="col-sm-12">
+                                    <input type="number" class="form-control" id="urutan1" name="urutan1"
+                                    placeholder="Masukan Link" value="" >
+                                </div>
+                        </div>                             
                         <div class="form-group row">
                             <label for="inputJudul1" class="col-sm-12 col-form-label">Judul Link</label>
                             <div class="col-sm-12">
@@ -121,7 +128,20 @@ if($_SESSION['status_ca'] !="login"){
                     </button>
                 </div>
                 <form action="controller/conn_add_link.php" method="post"  enctype="multipart/form-data">
-                    <div class="modal-body">                        
+                    <?php 
+                        $result_head = mysqli_query($db2,"select * from `links` order by urutan desc limit 1");
+                        while($d_head = mysqli_fetch_array($result_head)){
+                        $last_urutan = $d_head['urutan']+1;
+                        }
+                    ?>
+                    <div class="modal-body">         
+                        <div class="form-group row">
+                            <label for="urutan2" class="col-sm-12 col-form-label">Urutan</label>
+                                <div class="col-sm-12">
+                                    <input type="number" class="form-control" id="urutan2" name="urutan2"
+                                    placeholder="Masukan Link" value="<?php echo $last_urutan; ?>" >
+                                </div>
+                        </div>               
                         <div class="form-group row">
                             <label for="inputJudul2" class="col-sm-12 col-form-label">Judul Link</label>
                             <div class="col-sm-12">
@@ -199,27 +219,32 @@ if($_SESSION['status_ca'] !="login"){
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Urutan</th>
                                                 <th>Judul Link</th>
                                                 <th>Alamat Linkst</th>
                                                 <th>Jumlah Klik</th>
+                                                
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
                                             $no = 1;
-                                            $result_head = mysqli_query($db2,"select * from `links`");
+                                            $result_head = mysqli_query($db2,"select * from `links` order by urutan");
                                             while($d_head = mysqli_fetch_array($result_head)){
                                             ?>
                                             <tr>
+                                                <td><?php echo $d_head['urutan']; ?></td>
                                                 <td><?php echo $d_head['judul']; ?></td>
                                                 <td><?php echo $d_head['link']; ?></td>
                                                 <td><?php echo $d_head['click']; ?></td>
+                                                
                                                 <td>
                                                     <button class="btn btn-info" name="id_ev"
                                                             data-c="<?php echo $d_head['id_links']; ?>"
                                                             data-e="<?php echo $d_head['judul']; ?>"
                                                             data-v="<?php echo $d_head['link']; ?>"
+                                                            data-z="<?php echo $d_head['urutan']; ?>"
                                                             data-toggle="modal" data-target="#modal-edit-header"
                                                         style="width: 100px; margin-top: 10px; margin-right: 20px;">
                                                         <i class="fas fa-pencil-alt"></i> Edit
@@ -335,6 +360,7 @@ if($_SESSION['status_ca'] !="login"){
             var recipient_e = button.data('e'); // Extract info from data-* attributes
             var recipient_v = button.data('v');
             var recipient_c = button.data('c');
+            var recipient_z = button.data('z');
 
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -342,12 +368,14 @@ if($_SESSION['status_ca'] !="login"){
             modal.find('.id_link1').val(recipient_c);
             modal.find('.inputJudul1').val(recipient_e);
             modal.find('.textLink1').val(recipient_v);
+            modal.find('.urutan').val(recipient_z);
 
 
             
             document.getElementById("id_link1").value = recipient_c;
             document.getElementById("inputJudul1").value = recipient_e;
             document.getElementById("textLink1").value = recipient_v;
+            document.getElementById("urutan1").value = recipient_z;
 
             
         })
